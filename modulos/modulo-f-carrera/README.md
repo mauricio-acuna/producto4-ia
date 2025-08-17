@@ -36,7 +36,7 @@ Al finalizar este módulo serás capaz de:
 ### Semana 4: Launch & Acceleration
 - **4.1** Job search optimization y application strategy
 - **4.2** Interview negotiation y decision making
-- **4.3** First 90 days planning for new role
+- **4.3** Planificación de los primeros 90 días para nuevo rol
 - **4.4** Continuous learning y career advancement
 
 ## 🌍 Global AI Market Analysis
@@ -90,7 +90,7 @@ Mid-level AI Engineer: €100k - €180k total
 Senior AI Engineer: €150k - €300k total
 Principal AI Engineer: €200k - €450k total
 
-Note: + equity, + benefits, + visa sponsorship
+Nota: + equity, + beneficios, + sponsorship de visa
 ```
 
 **🇨🇦 Canada (Toronto, Vancouver)**
@@ -116,20 +116,20 @@ Brazil: $35k - $100k USD (remote US companies)
 Argentina: $30k - $90k USD (remote US companies)
 Colombia: $35k - $95k USD (remote US companies)
 
-Note: Cost of living adjusted, full benefits
+Nota: Ajustado por costo de vida, beneficios completos
 ```
 
 ### 🏢 Company Categories & Compensation
 
-#### Tier 1: AI-First Companies
+#### Tier 1: Empresas AI-First
 ```yaml
 Companies: OpenAI, Anthropic, Cohere, Stability AI
 Compensation: Premium (Top 5% of market)
 Equity: High risk, high reward
 Culture: Research-focused, cutting-edge
-Requirements: PhD preferred, publications, novel research
+Requisitos: PhD preferido, publicaciones, investigación novedosa
 
-Example Packages:
+Paquetes de Ejemplo:
   Senior AI Engineer: $400k - $800k total comp
   Research Scientist: $350k - $1.2M total comp
   Staff Engineer: $600k - $1.5M total comp
@@ -141,9 +141,9 @@ Companies: Google/DeepMind, Meta AI, Microsoft, Apple
 Compensation: Very High (Top 10% of market)
 Equity: Stable, predictable growth
 Culture: Scale-focused, product impact
-Requirements: Strong engineering, some research
+Requisitos: Ingeniería sólida, algo de investigación
 
-Example Packages:
+Paquetes de Ejemplo:
   L5/E5 AI Engineer: $300k - $600k total comp
   L6/E6 Senior Engineer: $450k - $900k total comp
   L7/E7 Staff Engineer: $600k - $1.2M total comp
@@ -155,9 +155,9 @@ Companies: AWS, Azure, GCP, NVIDIA, Intel
 Compensation: High (Top 15% of market)
 Equity: Moderate growth potential
 Culture: B2B focused, enterprise solutions
-Requirements: Systems expertise, scale experience
+Requisitos: Experiencia en sistemas, experiencia a escala
 
-Example Packages:
+Paquetes de Ejemplo:
   Senior AI Engineer: $250k - $500k total comp
   Principal Engineer: $350k - $700k total comp
   Distinguished Engineer: $500k - $1M total comp
@@ -169,9 +169,9 @@ Companies: IBM, Accenture, Deloitte, McKinsey Digital
 Compensation: Good (Market rate)
 Equity: Limited
 Culture: Client-focused, business impact
-Requirements: Communication skills, domain expertise
+Requisitos: Habilidades de comunicación, experiencia en dominio
 
-Example Packages:
+Paquetes de Ejemplo:
   Senior Consultant: $150k - $300k total comp
   Principal: $200k - $400k total comp
   Partner Track: $300k - $600k total comp
@@ -183,9 +183,9 @@ Companies: Early/growth stage AI startups
 Compensation: Variable (High risk/reward)
 Equity: High potential, high risk
 Culture: Fast-paced, ownership mentality
-Requirements: Full-stack, adaptability
+Requisitos: Full-stack, adaptabilidad
 
-Example Packages:
+Paquetes de Ejemplo:
   Senior Engineer: $120k - $250k + significant equity
   Staff Engineer: $180k - $350k + equity
   Founding Engineer: $100k - $200k + major equity %
@@ -212,7 +212,7 @@ Compensation Growth:
   Senior: $400k - $1M+
   Director: $600k - $2M+
 
-Best For: PhD holders, publication track record, academic interests
+Mejor Para: PhD, historial de publicaciones, intereses académicos
 ```
 
 #### ⚙️ **Engineering Track: AI Infrastructure Engineer**
@@ -232,7 +232,7 @@ Compensation Growth:
   Senior: $350k - $700k
   Principal: $500k - $1.2M
 
-Best For: Systems engineering background, scale expertise
+Mejor Para: Background en ingeniería de sistemas, experiencia a escala
 ```
 
 #### 🎯 **Product Track: AI Product Manager**
@@ -252,7 +252,7 @@ Compensation Growth:
   Senior: $300k - $600k
   Director: $400k - $1M+
 
-Best For: Business + technical background, user-focused
+Mejor Para: Background de negocios + técnico, enfocado en usuario
 ```
 
 #### 🏢 **Management Track: Engineering Manager → VP Engineering**
@@ -272,7 +272,7 @@ Compensation Growth:
   VP: $500k - $1.2M
   CTO: $300k - $2M+ (+ significant equity)
 
-Best For: Leadership interests, people management skills
+Mejor Para: Intereses de liderazgo, habilidades de gestión de personas
 ```
 
 ### Domain Specializations
@@ -288,7 +288,7 @@ Hot Skills 2024-2026:
 
 Salary Premium: +20-30% over base AI engineer
 Demand Level: Extremely High
-Best Companies: OpenAI, Anthropic, Google, startups
+Mejores Empresas: OpenAI, Anthropic, Google, startups
 ```
 
 #### 🏭 **MLOps & AI Infrastructure**
@@ -302,12 +302,12 @@ Key Technologies:
 
 Salary Premium: +15-25% over base AI engineer
 Demand Level: Very High  
-Best Companies: Cloud providers, enterprises, ML platforms
+Mejores Empresas: Proveedores de cloud, empresas, plataformas ML
 ```
 
 #### 🏥 **Domain-Specific AI (Healthcare, Finance, Legal)**
 ```yaml
-High-Value Domains:
+Dominios de Alto Valor:
   - Healthcare: Medical imaging, drug discovery
   - Finance: Risk modeling, algorithmic trading
   - Legal: Contract analysis, compliance
@@ -315,7 +315,7 @@ High-Value Domains:
 
 Salary Premium: +25-40% (regulatory/compliance premium)
 Demand Level: High (but specialized)
-Requirements: Domain expertise + AI skills
+Requisitos: Experiencia en dominio + habilidades de IA
 ```
 
 ## 💰 Negotiation Strategies
@@ -372,32 +372,32 @@ Market Differentiators:
 
 #### Salary Negotiation Scripts
 
-**Opening Counter-Offer:**
+**Contraoferta de Apertura:**
 ```
-"Thank you for the offer! I'm excited about the opportunity and the team. 
-I've done some research on market rates for this role, and based on my 
-experience with [specific AI technologies] and track record of [specific 
-achievements], I was expecting something closer to $[X]. Can we discuss 
-how to bridge that gap?"
+"¡Gracias por la oferta! Estoy emocionado por la oportunidad y el equipo. 
+He investigado las tarifas del mercado para este rol, y basándome en mi 
+experiencia con [tecnologías específicas de IA] y historial de [logros 
+específicos], esperaba algo más cercano a $[X]. ¿Podemos discutir 
+cómo cerrar esa brecha?"
 ```
 
-**Justifying Higher Ask:**
+**Justificando Mayor Solicitud:**
 ```
 "My ask is based on three key factors:
 1. Market data showing $[X] for similar roles at [comparable companies]
 2. My specialized experience in [specific AI domain] which directly impacts [business value]
 3. The unique combination of [skill 1] + [skill 2] that I bring
 
-I'm confident this investment will deliver strong ROI through [specific value propositions]."
+Estoy seguro de que esta inversión generará un ROI sólido a través de [propuestas de valor específicas]."
 ```
 
-**When They Say Budget Constraints:**
+**Cuando Dicen Restricciones Presupuestarias:**
 ```
-"I understand budget constraints. Let's explore creative solutions:
-- Sign-on bonus to bridge first-year gap
-- Accelerated review cycle (6 months vs 12)
-- Additional equity to offset base salary
-- Professional development budget
+"Entiendo las restricciones presupuestarias. Exploremos soluciones creativas:
+- Bono de firma para cerrar la brecha del primer año
+- Ciclo de revisión acelerado (6 meses vs 12)
+- Equity adicional para compensar salario base
+- Presupuesto de desarrollo profesional
 - Flexible work arrangements
 
 What options might work within your framework?"
@@ -423,7 +423,7 @@ Negotiation Strategies:
 
 **Benefits Package Optimization:**
 ```yaml
-High-Value Benefits:
+Beneficios de Alto Valor:
   - Learning & development budget ($5k-15k/year)
   - Conference & travel budget
   - Equipment & home office setup
@@ -482,12 +482,12 @@ weights = {
 
 #### Negotiation Sequencing
 ```yaml
-Week 1: Receive initial offers, don't commit
-Week 2: Research and prepare counter-arguments
-Week 3: Counter-offer with best alternative, negotiate
-Week 4: Finalize terms and make decision
+Semana 1: Recibir ofertas iniciales, no comprometerse
+Semana 2: Investigar y preparar contraargumentos
+Semana 3: Contraoferta con mejor alternativa, negociar
+Semana 4: Finalizar términos y tomar decisión
 
-Best Practices:
+Mejores Prácticas:
   - Never lie about competing offers
   - Be transparent about timeline constraints
   - Express genuine enthusiasm for preferred option
@@ -646,7 +646,7 @@ Engagement Strategy:
 **Entregable:** Negotiation playbook personalizado
 
 1. **Scenario Practice:** Role-play different negotiation scenarios
-2. **Script Development:** Create template responses for common situations
+2. **Desarrollo de Scripts:** Crear respuestas template para situaciones comunes
 3. **Objection Handling:** Prepare for budget constraints, competing priorities
 4. **Multi-offer Strategy:** Plan approach for leveraging competing offers
 5. **Real Negotiation:** Apply skills in actual job negotiation
@@ -709,7 +709,7 @@ Engagement Strategy:
 - [ ] **Network Activation** with warm introductions secured
 - [ ] **Personal Brand Presence** established across platforms
 - [ ] **Interview Pipeline** with scheduled conversations
-- [ ] **First 90 Days Plan** for new role transition
+- [ ] **Plan de Primeros 90 Días** para transición a nuevo rol
 
 ## 🏆 Success Metrics
 
@@ -733,7 +733,7 @@ Engagement Strategy:
 
 ## 🚀 Post-Program Career Acceleration
 
-### First 90 Days in New Role
+### Primeros 90 Días en Nuevo Rol
 ```yaml
 Days 1-30: Foundation & Relationships
   - Meet all team members and key stakeholders

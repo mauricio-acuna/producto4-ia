@@ -80,4 +80,4 @@ Los datasets se actualizan regularmente con:
 
 ---
 
-**💡 Tip:** Comienza siempre con los datasets básicos de tu capstone antes de avanzar a casos más complejos.
+**💡 Consejo:** Comienza siempre con los datasets básicos de tu capstone antes de avanzar a casos más complejos.

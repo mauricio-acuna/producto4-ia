@@ -103,7 +103,7 @@ Datasets curados para desarrollar un copiloto de programación con capacidades d
 {
   "issue_id": "gh_issue_001",
   "title": "TypeError: 'NoneType' object is not subscriptable",
-  "description": "Getting this error when trying to access user data: `user_data['email']` returns TypeError",
+  "description": "Obteniendo este error al intentar acceder a datos de usuario: `user_data['email']` devuelve TypeError",
   "code_context": "def get_user_email(user_id):\n    user_data = get_user_from_db(user_id)\n    return user_data['email']  # Error here",
   "solution": "def get_user_email(user_id):\n    user_data = get_user_from_db(user_id)\n    if user_data is None:\n        return None\n    return user_data.get('email')",
   "explanation": "Always check for None before accessing dictionary keys",

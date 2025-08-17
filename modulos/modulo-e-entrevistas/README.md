@@ -85,22 +85,22 @@ Al finalizar este módulo serás capaz de:
 #### Casos de Estudio Típicos
 ```yaml
 Case 1: "Design a Code Completion System"
-  - Requirements: IDE integration, multi-language support
+  - Requisitos: Integración IDE, soporte multi-lenguaje
   - Scale: 1M developers, 100M requests/day
   - Components: Code parser, ML model, caching layer
 
 Case 2: "Design a Document Q&A System"  
-  - Requirements: Enterprise docs, real-time answers
+  - Requisitos: Documentación empresarial, respuestas en tiempo real
   - Scale: 10k documents, 1k concurrent users
   - Components: Ingestion, RAG pipeline, UI
 
 Case 3: "Design a Content Moderation System"
-  - Requirements: Real-time moderation, multiple content types
+  - Requisitos: Moderación en tiempo real, múltiples tipos de contenido
   - Scale: 1B posts/day, <100ms latency
   - Components: ML classifiers, human review queue
 
 Case 4: "Design a Recommendation Engine"
-  - Requirements: Personalized recommendations, A/B testing
+  - Requisitos: Recomendaciones personalizadas, pruebas A/B
   - Scale: 100M users, real-time inference
   - Components: Feature store, ML pipeline, serving layer
 ```
@@ -323,11 +323,11 @@ Scale Considerations:
 
 #### Architecture Design
 ```yaml
-Problem: "Design a multi-modal AI platform"
-Requirements:
-  - Support text, image, audio, video
-  - Multi-tenant architecture
-  - Global deployment
+Problem: "Diseñar una plataforma de IA multi-modal"
+Requisitos:
+  - Soporte para texto, imagen, audio, video
+  - Arquitectura multi-tenant
+  - Despliegue global
   - Enterprise compliance
 
 Expected Discussion:
@@ -381,7 +381,7 @@ Expected Discussion:
 **Formato:** Research + customized preparation
 
 1. **Company Analysis:** Tech stack, culture, recent news
-2. **Role Requirements:** Job description analysis
+2. **Requisitos del Rol:** Análisis de descripción de trabajo
 3. **Interview Process:** Glassdoor research, employee insights
 4. **Customization:** Tailor examples to company context
 
@@ -547,7 +547,7 @@ Trade-offs & Alternatives (25%):
 - [ ] **Company Research:** Deep knowledge of 5+ target companies
 - [ ] **Salary Benchmarking:** Know market rates for target roles
 - [ ] **Application Materials:** Resume, LinkedIn, portfolio optimized
-- [ ] **Network Activation:** Connections at target companies engaged
+- [ ] **Activación de Red:** Conexiones en empresas objetivo comprometidas
 
 ## 🚀 Siguientes Pasos
 

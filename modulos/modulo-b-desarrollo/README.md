@@ -225,7 +225,7 @@ Usando la plantilla del Project Charter:
 
 ### Documentación Técnica
 - [ ] **FastAPI Official Docs** - https://fastapi.tiangolo.com/
-- [ ] **Docker Best Practices** - https://docs.docker.com/develop/dev-best-practices/
+- [ ] **Mejores Prácticas de Docker** - https://docs.docker.com/develop/dev-best-practices/
 - [ ] **GitHub Actions Docs** - https://docs.github.com/en/actions
 
 ## 🔧 Plantillas y Herramientas

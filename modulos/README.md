@@ -224,5 +224,5 @@ Módulo F (Carrera)
 
 ---
 
-**🚀 Ready to transform your career in AI Engineering?**  
+**🚀 ¿Listo para transformar tu carrera en Ingeniería de IA?**  
 Explora cada módulo y comienza tu journey hacia AI Engineering mastery!

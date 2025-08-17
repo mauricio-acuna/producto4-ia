@@ -49,105 +49,105 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Vector fundamentals for ML
-def vector_fundamentals():
-    """Core vector operations used in ML algorithms"""
+def operaciones_vectoriales_fundamentales():
+    """Operaciones vectoriales fundamentales usadas en algoritmos de ML"""
     
-    # Vectors as feature representations
-    x1 = np.array([2.5, 1.8, 3.2, 0.9])  # Sample 1 features (e.g., height, weight, age, income)
-    x2 = np.array([1.9, 2.1, 2.8, 1.2])  # Sample 2 features
+    # Vectores como representaciones de características
+    x1 = np.array([2.5, 1.8, 3.2, 0.9])  # Muestra 1 características (ej: altura, peso, edad, ingresos)
+    x2 = np.array([1.9, 2.1, 2.8, 1.2])  # Muestra 2 características
     
-    # Dot product - similarity measure
-    # High dot product = similar feature vectors = similar samples
-    similarity = np.dot(x1, x2)
-    print(f"Dot product (similarity): {similarity:.2f}")
+    # Producto punto - medida de similitud
+    # Producto punto alto = vectores de características similares = muestras similares
+    similitud = np.dot(x1, x2)
+    print(f"Producto punto (similitud): {similitud:.2f}")
     
-    # L2 norm - magnitude/distance  
-    # Represents the "length" of the feature vector in high-dimensional space
-    magnitude_x1 = np.linalg.norm(x1)
-    distance = np.linalg.norm(x1 - x2)  # Euclidean distance between samples
-    print(f"L2 norm of x1: {magnitude_x1:.2f}")
-    print(f"Euclidean distance: {distance:.2f}")
+    # Norma L2 - magnitud/distancia  
+    # Representa la "longitud" del vector de características en espacio de alta dimensión
+    magnitud_x1 = np.linalg.norm(x1)
+    distancia = np.linalg.norm(x1 - x2)  # Distancia euclidiana entre muestras
+    print(f"Norma L2 de x1: {magnitud_x1:.2f}")
+    print(f"Distancia euclidiana: {distancia:.2f}")
     
-    # Cosine similarity - normalized similarity (range: -1 to 1)
-    # Measures angle between vectors, independent of magnitude
-    # Used in recommendation systems, text similarity, etc.
-    cosine_sim = np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
-    print(f"Cosine similarity: {cosine_sim:.3f}")
+    # Similitud coseno - similitud normalizada (rango: -1 a 1)
+    # Mide el ángulo entre vectores, independiente de la magnitud
+    # Usado en sistemas de recomendación, similitud de texto, etc.
+    similitud_coseno = np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
+    print(f"Similitud coseno: {similitud_coseno:.3f}")
     
-    # Practical interpretation:
-    # - cosine_sim ≈ 1: Very similar samples
-    # - cosine_sim ≈ 0: Orthogonal/unrelated samples  
-    # - cosine_sim ≈ -1: Opposite samples
+    # Interpretación práctica:
+    # - similitud_coseno ≈ 1: Muestras muy similares
+    # - similitud_coseno ≈ 0: Muestras ortogonales/no relacionadas  
+    # - similitud_coseno ≈ -1: Muestras opuestas
     
-    return x1, x2, similarity, distance
+    return x1, x2, similitud, distancia
 
-# Matrix operations for neural networks
-def matrix_operations():
-    """Matrix operations fundamental to neural networks"""
+# Operaciones matriciales para redes neuronales
+def operaciones_matriciales():
+    """Operaciones matriciales fundamentales para redes neuronales"""
     
-    # Weight matrix (3 neurons, 4 inputs)
-    # Each row represents one neuron's weights for all inputs
+    # Matriz de pesos (3 neuronas, 4 entradas)
+    # Cada fila representa los pesos de una neurona para todas las entradas
     W = np.random.randn(3, 4) * 0.1
-    # Bias vector (one bias per neuron)
+    # Vector de bias (un bias por neurona)
     b = np.random.randn(3) * 0.1
-    # Input batch (2 samples, 4 features each)
+    # Lote de entrada (2 muestras, 4 características cada una)
     X = np.random.randn(2, 4)
     
-    # Forward pass: Y = XW^T + b
-    # This is the core computation in neural networks
-    # X: (batch_size, input_dim) -> Y: (batch_size, output_dim)
+    # Paso hacia adelante: Y = XW^T + b
+    # Esta es la computación central en redes neuronales
+    # X: (tamaño_lote, dim_entrada) -> Y: (tamaño_lote, dim_salida)
     Y = np.dot(X, W.T) + b
-    print(f"Input shape: {X.shape}")
-    print(f"Weight shape: {W.shape}")  
-    print(f"Output shape: {Y.shape}")
+    print(f"Forma de entrada: {X.shape}")
+    print(f"Forma de pesos: {W.shape}")  
+    print(f"Forma de salida: {Y.shape}")
     
-    # Eigendecomposition for PCA (Principal Component Analysis)
-    # Finds the directions of maximum variance in the data
-    cov_matrix = np.cov(X.T)  # Covariance matrix of features
-    eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
-    print(f"Eigenvalues (variance along each principal component): {eigenvalues}")
+    # Descomposición en valores propios para PCA (Análisis de Componentes Principales)
+    # Encuentra las direcciones de máxima varianza en los datos
+    matriz_cov = np.cov(X.T)  # Matriz de covarianza de características
+    valores_propios, vectores_propios = np.linalg.eig(matriz_cov)
+    print(f"Valores propios (varianza a lo largo de cada componente principal): {valores_propios}")
     
-    # Practical applications:
-    # - Eigenvalues tell us how much variance each component captures
-    # - Eigenvectors are the directions of principal components
-    # - Used for dimensionality reduction, data visualization
+    # Aplicaciones prácticas:
+    # - Los valores propios nos dicen cuánta varianza captura cada componente
+    # - Los vectores propios son las direcciones de los componentes principales
+    # - Usado para reducción de dimensionalidad, visualización de datos
     
-    return W, b, X, Y, eigenvalues, eigenvectors
+    return W, b, X, Y, valores_propios, vectores_propios
 
-# Real-world example: Document similarity using vectors
-def document_similarity_example():
-    """Practical example: Finding similar documents using vector operations"""
+# Ejemplo del mundo real: similitud de documentos usando vectores
+def ejemplo_similitud_documentos():
+    """Ejemplo práctico: Encontrar documentos similares usando operaciones vectoriales"""
     
-    # Simulate TF-IDF vectors for 3 documents
-    # Each element represents the importance of a word in the document
+    # Simular vectores TF-IDF para 3 documentos
+    # Cada elemento representa la importancia de una palabra en el documento
     doc1 = np.array([0.2, 0.8, 0.1, 0.0, 0.3])  # "machine learning python"
     doc2 = np.array([0.1, 0.7, 0.2, 0.0, 0.4])  # "python machine learning"  
-    doc3 = np.array([0.0, 0.1, 0.0, 0.9, 0.0])  # "cat dog animal"
+    doc3 = np.array([0.0, 0.1, 0.0, 0.9, 0.0])  # "gato perro animal"
     
-    # Calculate cosine similarities
+    # Calcular similitudes coseno
     sim_1_2 = np.dot(doc1, doc2) / (np.linalg.norm(doc1) * np.linalg.norm(doc2))
     sim_1_3 = np.dot(doc1, doc3) / (np.linalg.norm(doc1) * np.linalg.norm(doc3))
     sim_2_3 = np.dot(doc2, doc3) / (np.linalg.norm(doc2) * np.linalg.norm(doc3))
     
-    print(f"Similarity doc1-doc2 (both about ML): {sim_1_2:.3f}")
-    print(f"Similarity doc1-doc3 (different topics): {sim_1_3:.3f}")
-    print(f"Similarity doc2-doc3 (different topics): {sim_2_3:.3f}")
+    print(f"Similitud doc1-doc2 (ambos sobre ML): {sim_1_2:.3f}")
+    print(f"Similitud doc1-doc3 (temas diferentes): {sim_1_3:.3f}")
+    print(f"Similitud doc2-doc3 (temas diferentes): {sim_2_3:.3f}")
     
-    # Expected result: doc1-doc2 high similarity, others low
-    # This is the foundation of search engines, recommendation systems
+    # Resultado esperado: doc1-doc2 alta similitud, otros baja
+    # Esta es la base de motores de búsqueda, sistemas de recomendación
     
     return sim_1_2, sim_1_3, sim_2_3
 
-# Example usage with detailed explanations
+# Uso de ejemplo con explicaciones detalladas
 if __name__ == "__main__":
-    print("=== Basic Vector Operations ===")
-    vector_fundamentals()
+    print("=== Operaciones Vectoriales Básicas ===")
+    operaciones_vectoriales_fundamentales()
     
-    print("\n=== Neural Network Matrix Operations ===")
-    matrix_operations()
+    print("\n=== Operaciones Matriciales de Redes Neuronales ===")
+    operaciones_matriciales()
     
-    print("\n=== Real-world Application: Document Similarity ===")
-    document_similarity_example()
+    print("\n=== Aplicación del Mundo Real: Similitud de Documentos ===")
+    ejemplo_similitud_documentos()
 ```
 
 #### Probability & Statistics for ML
@@ -453,71 +453,71 @@ print("=== Multivariate Gradient Descent ===")
 multivariate_gradients()
 ```
 
-# Neural network gradient example
-def simple_neural_network_gradients():
-    """Backpropagation in a simple neural network"""
+# Ejemplo de gradientes en red neuronal
+def gradientes_red_neuronal_simple():
+    """Retropropagación en una red neuronal simple"""
     
-    # Simple 2-layer network
-    def sigmoid(x):
+    # Red simple de 2 capas
+    def sigmoide(x):
         return 1 / (1 + np.exp(-np.clip(x, -250, 250)))
     
-    def sigmoid_derivative(x):
-        s = sigmoid(x)
+    def derivada_sigmoide(x):
+        s = sigmoide(x)
         return s * (1 - s)
     
-    # Network parameters
+    # Parámetros de la red
     np.random.seed(42)
-    W1 = np.random.randn(2, 3) * 0.5  # Input to hidden
+    W1 = np.random.randn(2, 3) * 0.5  # Entrada a oculta
     b1 = np.random.randn(3) * 0.5
-    W2 = np.random.randn(3, 1) * 0.5  # Hidden to output
+    W2 = np.random.randn(3, 1) * 0.5  # Oculta a salida
     b2 = np.random.randn(1) * 0.5
     
-    # Training data
+    # Datos de entrenamiento
     X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    y = np.array([[0], [1], [1], [0]])  # XOR function
+    y = np.array([[0], [1], [1], [0]])  # Función XOR
     
-    learning_rate = 1.0
-    losses = []
+    tasa_aprendizaje = 1.0
+    perdidas = []
     
-    for epoch in range(1000):
-        # Forward pass
+    for epoca in range(1000):
+        # Paso hacia adelante
         z1 = np.dot(X, W1.T) + b1
-        a1 = sigmoid(z1)
+        a1 = sigmoide(z1)
         z2 = np.dot(a1, W2.T) + b2
-        a2 = sigmoid(z2)
+        a2 = sigmoide(z2)
         
-        # Loss (MSE)
-        loss = np.mean((a2 - y)**2)
-        losses.append(loss)
+        # Pérdida (MSE)
+        perdida = np.mean((a2 - y)**2)
+        perdidas.append(perdida)
         
-        # Backward pass
-        # Output layer gradients
+        # Paso hacia atrás
+        # Gradientes de la capa de salida
         dL_da2 = 2 * (a2 - y) / len(X)
-        da2_dz2 = sigmoid_derivative(z2)
+        da2_dz2 = derivada_sigmoide(z2)
         dL_dz2 = dL_da2 * da2_dz2
         
         dL_dW2 = np.dot(dL_dz2.T, a1)
         dL_db2 = np.sum(dL_dz2, axis=0)
         
-        # Hidden layer gradients
+        # Gradientes de la capa oculta
         dL_da1 = np.dot(dL_dz2, W2)
-        da1_dz1 = sigmoid_derivative(z1)
+        da1_dz1 = derivada_sigmoide(z1)
         dL_dz1 = dL_da1 * da1_dz1
         
         dL_dW1 = np.dot(dL_dz1.T, X)
         dL_db1 = np.sum(dL_dz1, axis=0)
         
-        # Update parameters
-        W2 -= learning_rate * dL_dW2
-        b2 -= learning_rate * dL_db2
-        W1 -= learning_rate * dL_dW1
-        b1 -= learning_rate * dL_db1
+        # Actualizar parámetros
+        W2 -= tasa_aprendizaje * dL_dW2
+        b2 -= tasa_aprendizaje * dL_db2
+        W1 -= tasa_aprendizaje * dL_dW1
+        b1 -= tasa_aprendizaje * dL_db1
         
-        if epoch % 100 == 0:
-            print(f"Epoch {epoch}, Loss: {loss:.6f}")
+        if epoca % 100 == 0:
+            print(f"Época {epoca}, Pérdida: {perdida:.6f}")
     
-    # Test the trained network
-    print("\nFinal predictions:")
+    # Probar la red entrenada
+    print("\nPredicciones finales:")
     z1 = np.dot(X, W1.T) + b1
     a1 = sigmoid(z1)
     z2 = np.dot(a1, W2.T) + b2
@@ -538,7 +538,7 @@ simple_neural_network_gradients()
 
 ### Environment Setup & Best Practices
 
-#### Professional Development Environment
+#### Entorno de Desarrollo Profesional
 ```bash
 # Create conda environment for AI/ML projects
 conda create -n ai-engineering python=3.11
@@ -863,7 +863,7 @@ quality_report, correlation_matrix = data_quality_checks(df_encoded)
 
 ## 🤖 Algorithm Implementation from Scratch
 
-### Linear Regression Implementation
+### Implementación de Regresión Lineal
 
 ```python
 import numpy as np
@@ -872,97 +872,97 @@ from sklearn.datasets import make_regression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-class LinearRegressionFromScratch:
-    """Linear Regression implemented from scratch"""
+class RegresionLinealDesdeCero:
+    """Regresión Lineal implementada desde cero"""
     
-    def __init__(self, learning_rate=0.01, max_iterations=1000, tolerance=1e-6):
-        self.learning_rate = learning_rate
-        self.max_iterations = max_iterations
-        self.tolerance = tolerance
-        self.weights = None
-        self.bias = None
-        self.cost_history = []
+    def __init__(self, tasa_aprendizaje=0.01, max_iteraciones=1000, tolerancia=1e-6):
+        self.tasa_aprendizaje = tasa_aprendizaje
+        self.max_iteraciones = max_iteraciones
+        self.tolerancia = tolerancia
+        self.pesos = None
+        self.sesgo = None
+        self.historial_costo = []
     
-    def fit(self, X, y):
-        """Train the linear regression model"""
-        # Initialize parameters
-        n_samples, n_features = X.shape
-        self.weights = np.random.normal(0, 0.01, n_features)
-        self.bias = 0
+    def entrenar(self, X, y):
+        """Entrenar el modelo de regresión lineal"""
+        # Inicializar parámetros
+        n_muestras, n_caracteristicas = X.shape
+        self.pesos = np.random.normal(0, 0.01, n_caracteristicas)
+        self.sesgo = 0
         
-        # Gradient descent
-        for i in range(self.max_iterations):
-            # Forward pass
-            y_predicted = self.predict(X)
+        # Descenso de gradiente
+        for i in range(self.max_iteraciones):
+            # Paso hacia adelante
+            y_predicho = self.predecir(X)
             
-            # Cost function (MSE)
-            cost = np.mean((y_predicted - y) ** 2)
-            self.cost_history.append(cost)
+            # Función de costo (MSE)
+            costo = np.mean((y_predicho - y) ** 2)
+            self.historial_costo.append(costo)
             
-            # Gradients
-            dw = (1 / n_samples) * np.dot(X.T, (y_predicted - y))
-            db = (1 / n_samples) * np.sum(y_predicted - y)
+            # Gradientes
+            dw = (1 / n_muestras) * np.dot(X.T, (y_predicho - y))
+            db = (1 / n_muestras) * np.sum(y_predicho - y)
             
-            # Update parameters
-            self.weights -= self.learning_rate * dw
-            self.bias -= self.learning_rate * db
+            # Actualizar parámetros
+            self.pesos -= self.tasa_aprendizaje * dw
+            self.sesgo -= self.tasa_aprendizaje * db
             
-            # Early stopping
-            if i > 0 and abs(self.cost_history[-2] - self.cost_history[-1]) < self.tolerance:
-                print(f"Converged after {i+1} iterations")
+            # Parada temprana
+            if i > 0 and abs(self.historial_costo[-2] - self.historial_costo[-1]) < self.tolerancia:
+                print(f"Convergió después de {i+1} iteraciones")
                 break
     
-    def predict(self, X):
-        """Make predictions"""
-        return np.dot(X, self.weights) + self.bias
+    def predecir(self, X):
+        """Hacer predicciones"""
+        return np.dot(X, self.pesos) + self.sesgo
     
-    def score(self, X, y):
-        """Calculate R² score"""
-        y_pred = self.predict(X)
+    def puntuar(self, X, y):
+        """Calcular puntuación R²"""
+        y_pred = self.predecir(X)
         ss_res = np.sum((y - y_pred) ** 2)
         ss_tot = np.sum((y - np.mean(y)) ** 2)
         return 1 - (ss_res / ss_tot)
 
-# Test implementation
-def test_linear_regression():
-    """Test linear regression implementation"""
+# Probar implementación
+def probar_regresion_lineal():
+    """Probar implementación de regresión lineal"""
     
-    # Generate synthetic data
+    # Generar datos sintéticos
     X, y = make_regression(n_samples=1000, n_features=5, noise=10, random_state=42)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-    # Scale features
-    scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
+    # Escalar características
+    escalador = StandardScaler()
+    X_train_escalado = escalador.fit_transform(X_train)
+    X_test_escalado = escalador.transform(X_test)
     
-    # Train custom model
-    model = LinearRegressionFromScratch(learning_rate=0.01, max_iterations=1000)
-    model.fit(X_train_scaled, y_train)
+    # Entrenar modelo personalizado
+    modelo = RegresionLinealDesdeCero(tasa_aprendizaje=0.01, max_iteraciones=1000)
+    modelo.entrenar(X_train_escalado, y_train)
     
-    # Evaluate
-    train_score = model.score(X_train_scaled, y_train)
-    test_score = model.score(X_test_scaled, y_test)
+    # Evaluar
+    puntuacion_entrenamiento = modelo.puntuar(X_train_escalado, y_train)
+    puntuacion_prueba = modelo.puntuar(X_test_escalado, y_test)
     
-    print(f"Training R² score: {train_score:.4f}")
-    print(f"Testing R² score: {test_score:.4f}")
+    print(f"Puntuación R² de entrenamiento: {puntuacion_entrenamiento:.4f}")
+    print(f"Puntuación R² de prueba: {puntuacion_prueba:.4f}")
     
-    # Plot cost history
+    # Graficar historial de costo
     plt.figure(figsize=(10, 6))
-    plt.plot(model.cost_history)
-    plt.title('Cost Function Over Iterations')
-    plt.xlabel('Iteration')
-    plt.ylabel('Cost (MSE)')
+    plt.plot(modelo.historial_costo)
+    plt.title('Función de Costo a través de las Iteraciones')
+    plt.xlabel('Iteración')
+    plt.ylabel('Costo (MSE)')
     plt.grid(True)
     plt.show()
     
-    return model, X_train_scaled, X_test_scaled, y_train, y_test
+    return modelo, X_train_escalado, X_test_escalado, y_train, y_test
 
-# Run test
-model, X_train, X_test, y_train, y_test = test_linear_regression()
+# Ejecutar prueba
+modelo, X_train, X_test, y_train, y_test = probar_regresion_lineal()
 ```
 
-### Neural Network from Scratch
+### Red Neuronal desde Cero
 
 ```python
 import numpy as np

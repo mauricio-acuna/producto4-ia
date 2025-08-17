@@ -409,4 +409,4 @@ python scripts/final_benchmark.py --generate-portfolio-report
 
 ---
 
-**💡 Tip:** Ejecuta benchmarks regularmente durante el desarrollo para identificar regresiones temprano y optimizar basado en datos objetivos.
+**💡 Consejo:** Ejecuta benchmarks regularmente durante el desarrollo para identificar regresiones temprano y optimizar basado en datos objetivos.

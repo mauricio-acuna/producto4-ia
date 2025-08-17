@@ -138,4 +138,4 @@ plantillas/
 
 ---
 
-**💡 Tip:** Comienza siempre con los templates básicos y personaliza según necesidades específicas de tu capstone. La documentación de calidad es tan importante como el código.
+**💡 Consejo:** Comienza siempre con los templates básicos y personaliza según necesidades específicas de tu capstone. La documentación de calidad es tan importante como el código.
