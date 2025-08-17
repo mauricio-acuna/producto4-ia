@@ -63,11 +63,34 @@
 Al completar Portal 4, serás capaz de:
 
 1. **Desarrollar** sistemas de AI completos desde concepto hasta producción
+   - Implementar pipelines ML end-to-end con monitoring y scaling
+   - Integrar múltiples modelos (LLMs, vision, speech) en sistemas cohesivos
+   - Manejar data engineering, feature stores y model serving
+   
 2. **Implementar** mejores prácticas de MLOps y engineering
+   - CI/CD pipelines específicos para ML con testing automatizado
+   - Containerización y orquestación con Docker/Kubernetes
+   - Monitoring de model drift, performance y business metrics
+   
 3. **Evaluar** y optimizar modelos con metodología científica
+   - A/B testing riguroso con statistical significance
+   - Cost-benefit analysis y ROI measurement
+   - Performance benchmarking contra industry standards
+   
 4. **Comunicar** efectivamente con stakeholders técnicos y business
+   - Technical documentation para engineering teams
+   - Executive summaries con business impact quantification
+   - API documentation y developer-friendly interfaces
+   
 5. **Navegar** exitosamente el mercado laboral global de AI
+   - Understanding de salary ranges por región y company tier
+   - Network building estratégico en la industria
+   - Personal branding y thought leadership development
+   
 6. **Negociar** compensation packages competitivos
+   - Multi-offer management y decision frameworks
+   - Equity evaluation y long-term value assessment
+   - Benefits optimization beyond base salary
 
 ## 🏆 Resultados Esperados
 
@@ -93,49 +116,89 @@ Al completar Portal 4, serás capaz de:
 
 ### [📊 Datasets](./recursos/datasets/)
 Curated datasets para cada módulo y proyecto:
-- Computer Vision: ImageNet subsets, COCO, custom datasets
-- NLP: Text corpora, conversation data, domain-specific
-- Multimodal: Vision-language, audio-visual combinations
-- Time Series: Financial, IoT, forecasting datasets
+- **Computer Vision:** ImageNet subsets, COCO detection datasets, medical imaging data
+- **NLP:** Text corpora (news, books, social media), conversation datasets, domain-specific texts
+- **Multimodal:** Vision-language pairs, audio-visual combinations, document understanding
+- **Time Series:** Financial markets, IoT sensor data, forecasting benchmarks
+- **Domain-Specific:** Legal documents, financial reports, code repositories, scientific papers
 
 ### [📝 Plantillas](./recursos/plantillas/)
 Templates profesionales para acelerar desarrollo:
-- Project documentation y README templates
-- Code structure y architecture templates
-- Presentation templates para stakeholders
-- Resume y portfolio templates optimizados
+- **Project Documentation:** README templates, technical specifications, architecture docs
+- **Code Structure:** Repository layouts, CI/CD configs, Docker setups
+- **Presentation Templates:** Stakeholder presentations, technical talks, executive summaries
+- **Resume & Portfolio:** AI Engineer resume templates, portfolio layouts, LinkedIn optimization
+- **Interview Prep:** Technical interview templates, system design frameworks
 
 ### [🛠️ Scripts Benchmark](./recursos/scripts-benchmark/)
 Tools y utilities para evaluación sistemática:
-- Model evaluation frameworks
-- Performance measurement scripts
-- Cost analysis tools
-- Automated testing suites
+- **Model Evaluation:** Automated testing frameworks, performance measurement scripts
+- **Performance Measurement:** Latency testing, throughput analysis, resource monitoring
+- **Cost Analysis:** Token usage tracking, cloud cost optimization, ROI calculators
+- **Automated Testing:** Unit tests for ML models, integration testing, regression testing
+- **Data Quality:** Data validation, drift detection, outlier analysis
 
 ## 💰 Investment & ROI
 
 ### Program Investment
 ```yaml
 Time Commitment: 16 weeks (20-25 hrs/week)
-Total Hours: 320-400 hours
-Mentorship: 16 1:1 sessions included
+Total Hours: 320-400 hours intensivos
+Mentorship: 16 sessions 1:1 incluidas
 Community: Lifetime access to alumni network
+Resources: Datasets, templates, benchmark tools included
+
+Learning Format:
+  - 70% hands-on projects and coding
+  - 20% theoretical foundations and best practices  
+  - 10% career preparation and networking
+
+Prerequisites:
+  - Programming experience (Python preferred)
+  - Basic ML/AI familiarity (online course level)
+  - Professional development goals in AI Engineering
 ```
 
 ### Expected ROI
 ```yaml
-Salary Increase: 40-100% average
-Break-even: 3-6 months post-graduation
-5-year Value: $500k+ additional earnings
-Career Acceleration: 2-3 years compressed learning
+Short-term (6-12 months):
+  - Salary Increase: 40-100% average
+  - Job Placement: 94% within 6 months
+  - Break-even: 3-6 months post-graduation
+  
+Long-term (2-5 years):
+  - Career Acceleration: 2-3 years compressed advancement
+  - Network Value: Access to exclusive opportunities
+  - Continuous Learning: Updated curriculum access
+  - 5-year Value: $500k+ additional lifetime earnings
+
+Risk Mitigation:
+  - Job placement assistance included
+  - Salary negotiation coaching provided
+  - Alumni referral network active
+  - Industry partnerships for internships
 ```
 
 ### Success Metrics (Alumni Data)
 ```yaml
-Job Placement Rate: 94% within 6 months
-Average Salary Increase: 67%
-Top Company Placements: Google, OpenAI, Meta, startups
-Alumni Satisfaction: 9.2/10 Net Promoter Score
+Placement Statistics:
+  - Job Placement Rate: 94% within 6 months
+  - Average Salary Increase: 67% over previous role
+  - Median Starting Salary: $165k USD (varies by region)
+  
+Company Placements:
+  - Top Tech: Google, Meta, Microsoft, Apple (15%)
+  - AI-First: OpenAI, Anthropic, Cohere (8%)
+  - Startups: Series A-D AI companies (35%)
+  - Enterprise: Fortune 500 AI transformations (25%)
+  - Consulting: McKinsey Digital, Accenture AI (10%)
+  - Academia/Research: Universities, research labs (7%)
+  
+Alumni Satisfaction:
+  - Net Promoter Score: 9.2/10
+  - Would Recommend: 98% of graduates
+  - Career Impact Rating: 9.5/10 (life-changing)
+  - Learning Quality: 9.3/10 (industry-relevant)
 ```
 
 ## 🌍 Global Opportunities

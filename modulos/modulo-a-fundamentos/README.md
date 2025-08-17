@@ -53,22 +53,31 @@ def vector_fundamentals():
     """Core vector operations used in ML algorithms"""
     
     # Vectors as feature representations
-    x1 = np.array([2.5, 1.8, 3.2, 0.9])  # Sample 1 features
+    x1 = np.array([2.5, 1.8, 3.2, 0.9])  # Sample 1 features (e.g., height, weight, age, income)
     x2 = np.array([1.9, 2.1, 2.8, 1.2])  # Sample 2 features
     
     # Dot product - similarity measure
+    # High dot product = similar feature vectors = similar samples
     similarity = np.dot(x1, x2)
     print(f"Dot product (similarity): {similarity:.2f}")
     
-    # L2 norm - magnitude/distance
+    # L2 norm - magnitude/distance  
+    # Represents the "length" of the feature vector in high-dimensional space
     magnitude_x1 = np.linalg.norm(x1)
-    distance = np.linalg.norm(x1 - x2)
+    distance = np.linalg.norm(x1 - x2)  # Euclidean distance between samples
     print(f"L2 norm of x1: {magnitude_x1:.2f}")
     print(f"Euclidean distance: {distance:.2f}")
     
-    # Cosine similarity
+    # Cosine similarity - normalized similarity (range: -1 to 1)
+    # Measures angle between vectors, independent of magnitude
+    # Used in recommendation systems, text similarity, etc.
     cosine_sim = np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
     print(f"Cosine similarity: {cosine_sim:.3f}")
+    
+    # Practical interpretation:
+    # - cosine_sim ≈ 1: Very similar samples
+    # - cosine_sim ≈ 0: Orthogonal/unrelated samples  
+    # - cosine_sim ≈ -1: Opposite samples
     
     return x1, x2, similarity, distance
 
@@ -77,29 +86,68 @@ def matrix_operations():
     """Matrix operations fundamental to neural networks"""
     
     # Weight matrix (3 neurons, 4 inputs)
+    # Each row represents one neuron's weights for all inputs
     W = np.random.randn(3, 4) * 0.1
-    # Bias vector
+    # Bias vector (one bias per neuron)
     b = np.random.randn(3) * 0.1
-    # Input batch (2 samples, 4 features)
+    # Input batch (2 samples, 4 features each)
     X = np.random.randn(2, 4)
     
     # Forward pass: Y = XW^T + b
+    # This is the core computation in neural networks
+    # X: (batch_size, input_dim) -> Y: (batch_size, output_dim)
     Y = np.dot(X, W.T) + b
     print(f"Input shape: {X.shape}")
-    print(f"Weight shape: {W.shape}")
+    print(f"Weight shape: {W.shape}")  
     print(f"Output shape: {Y.shape}")
     
-    # Eigendecomposition for PCA
-    cov_matrix = np.cov(X.T)
+    # Eigendecomposition for PCA (Principal Component Analysis)
+    # Finds the directions of maximum variance in the data
+    cov_matrix = np.cov(X.T)  # Covariance matrix of features
     eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
-    print(f"Eigenvalues: {eigenvalues}")
+    print(f"Eigenvalues (variance along each principal component): {eigenvalues}")
+    
+    # Practical applications:
+    # - Eigenvalues tell us how much variance each component captures
+    # - Eigenvectors are the directions of principal components
+    # - Used for dimensionality reduction, data visualization
     
     return W, b, X, Y, eigenvalues, eigenvectors
 
-# Example usage
+# Real-world example: Document similarity using vectors
+def document_similarity_example():
+    """Practical example: Finding similar documents using vector operations"""
+    
+    # Simulate TF-IDF vectors for 3 documents
+    # Each element represents the importance of a word in the document
+    doc1 = np.array([0.2, 0.8, 0.1, 0.0, 0.3])  # "machine learning python"
+    doc2 = np.array([0.1, 0.7, 0.2, 0.0, 0.4])  # "python machine learning"  
+    doc3 = np.array([0.0, 0.1, 0.0, 0.9, 0.0])  # "cat dog animal"
+    
+    # Calculate cosine similarities
+    sim_1_2 = np.dot(doc1, doc2) / (np.linalg.norm(doc1) * np.linalg.norm(doc2))
+    sim_1_3 = np.dot(doc1, doc3) / (np.linalg.norm(doc1) * np.linalg.norm(doc3))
+    sim_2_3 = np.dot(doc2, doc3) / (np.linalg.norm(doc2) * np.linalg.norm(doc3))
+    
+    print(f"Similarity doc1-doc2 (both about ML): {sim_1_2:.3f}")
+    print(f"Similarity doc1-doc3 (different topics): {sim_1_3:.3f}")
+    print(f"Similarity doc2-doc3 (different topics): {sim_2_3:.3f}")
+    
+    # Expected result: doc1-doc2 high similarity, others low
+    # This is the foundation of search engines, recommendation systems
+    
+    return sim_1_2, sim_1_3, sim_2_3
+
+# Example usage with detailed explanations
 if __name__ == "__main__":
+    print("=== Basic Vector Operations ===")
     vector_fundamentals()
+    
+    print("\n=== Neural Network Matrix Operations ===")
     matrix_operations()
+    
+    print("\n=== Real-world Application: Document Similarity ===")
+    document_similarity_example()
 ```
 
 #### Probability & Statistics for ML
@@ -190,85 +238,220 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def gradient_fundamentals():
-    """Understanding gradients for optimization"""
+    """Understanding gradients for optimization with detailed explanations"""
     
-    # Simple quadratic function: f(x) = x^2 + 2x + 1
+    # Simple quadratic function: f(x) = x^2 + 2x + 1 = (x+1)^2
+    # This function has a global minimum at x = -1, f(-1) = 0
     def f(x):
         return x**2 + 2*x + 1
     
     def df_dx(x):
-        return 2*x + 2
+        return 2*x + 2  # Derivative: slope of the function at point x
     
-    # Gradient descent
-    x = 5.0  # Starting point
-    learning_rate = 0.1
+    # Gradient descent algorithm
+    x = 5.0  # Starting point (far from minimum)
+    learning_rate = 0.1  # Step size - too high causes oscillation, too low is slow
     history = [x]
     
+    print("Gradient Descent Optimization Process:")
+    print(f"Target: Find minimum of f(x) = x² + 2x + 1")
+    print(f"Starting at x = {x:.4f}, f(x) = {f(x):.4f}")
+    print(f"True minimum at x = -1.0, f(-1) = 0.0\n")
+    
     for i in range(20):
-        gradient = df_dx(x)
-        x = x - learning_rate * gradient
+        gradient = df_dx(x)  # Calculate slope at current point
+        x_new = x - learning_rate * gradient  # Move opposite to gradient direction
+        
+        print(f"Step {i+1:2d}: x = {x:8.4f} → {x_new:8.4f}, " +
+              f"f(x) = {f(x):8.4f}, gradient = {gradient:6.3f}")
+        
+        x = x_new
         history.append(x)
-        print(f"Step {i+1}: x={x:.4f}, f(x)={f(x):.4f}, gradient={gradient:.4f}")
+        
+        # Stop if we're very close to the minimum
+        if abs(gradient) < 1e-6:
+            print(f"Converged! Gradient is nearly zero: {gradient:.2e}")
+            break
     
     # Visualization
     x_plot = np.linspace(-4, 6, 100)
     y_plot = f(x_plot)
     
-    plt.figure(figsize=(10, 6))
-    plt.plot(x_plot, y_plot, 'b-', label='f(x) = x² + 2x + 1')
-    plt.plot(history, [f(x) for x in history], 'ro-', label='Gradient Descent')
+    plt.figure(figsize=(12, 8))
+    
+    # Main plot: function and optimization path
+    plt.subplot(2, 2, 1)
+    plt.plot(x_plot, y_plot, 'b-', linewidth=2, label='f(x) = x² + 2x + 1')
+    plt.plot(history, [f(x) for x in history], 'ro-', linewidth=2, 
+             markersize=6, label='Gradient Descent Path')
+    plt.plot(-1, 0, 'g*', markersize=15, label='True Minimum')
     plt.xlabel('x')
     plt.ylabel('f(x)')
     plt.legend()
     plt.title('Gradient Descent Optimization')
-    plt.grid(True)
+    plt.grid(True, alpha=0.3)
+    
+    # Plot convergence over iterations
+    plt.subplot(2, 2, 2)
+    plt.plot([f(x) for x in history], 'b-o', linewidth=2)
+    plt.xlabel('Iteration')
+    plt.ylabel('Function Value f(x)')
+    plt.title('Convergence: Function Value Over Time')
+    plt.grid(True, alpha=0.3)
+    plt.yscale('log')  # Log scale to better see convergence
+    
+    # Plot gradient magnitude over iterations
+    plt.subplot(2, 2, 3)
+    gradients = [abs(df_dx(x)) for x in history[:-1]]  # Gradients at each step
+    plt.plot(gradients, 'r-o', linewidth=2)
+    plt.xlabel('Iteration')
+    plt.ylabel('|Gradient|')
+    plt.title('Gradient Magnitude (Should → 0)')
+    plt.grid(True, alpha=0.3)
+    plt.yscale('log')
+    
+    # Learning rate effect visualization
+    plt.subplot(2, 2, 4)
+    learning_rates = [0.01, 0.1, 0.5, 1.1]
+    colors = ['blue', 'green', 'orange', 'red']
+    
+    for lr, color in zip(learning_rates, colors):
+        x_temp = 5.0
+        history_temp = []
+        for _ in range(15):
+            history_temp.append(x_temp)
+            gradient = df_dx(x_temp)
+            x_temp = x_temp - lr * gradient
+            if abs(x_temp) > 10:  # Prevent divergence
+                break
+                
+        plt.plot(range(len(history_temp)), history_temp, 
+                color=color, marker='o', label=f'LR = {lr}')
+    
+    plt.axhline(y=-1, color='black', linestyle='--', alpha=0.5, label='Target x = -1')
+    plt.xlabel('Iteration')
+    plt.ylabel('x position')
+    plt.title('Learning Rate Effect')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
     plt.show()
+    
+    print(f"\nFinal result: x = {history[-1]:.6f}, f(x) = {f(history[-1]):.6f}")
+    print(f"Error from true minimum: {abs(history[-1] + 1):.6f}")
     
     return history
 
 def multivariate_gradients():
-    """Gradients for multivariate functions"""
+    """Gradients for multivariate functions with detailed visualization"""
     
     # Function: f(x,y) = x² + y² - 2x - 4y + 5
+    # This is a paraboloid with minimum at (1, 2), f(1,2) = 0
     def f(x, y):
         return x**2 + y**2 - 2*x - 4*y + 5
     
     def gradient(x, y):
-        df_dx = 2*x - 2
-        df_dy = 2*y - 4
+        # Partial derivatives
+        df_dx = 2*x - 2  # ∂f/∂x
+        df_dy = 2*y - 4  # ∂f/∂y
         return np.array([df_dx, df_dy])
     
     # Gradient descent in 2D
-    point = np.array([5.0, 5.0])
+    point = np.array([5.0, 5.0])  # Starting point
     learning_rate = 0.1
     path = [point.copy()]
     
+    print("2D Gradient Descent:")
+    print(f"Function: f(x,y) = x² + y² - 2x - 4y + 5")
+    print(f"Starting at ({point[0]:.1f}, {point[1]:.1f})")
+    print(f"True minimum at (1.0, 2.0), f(1,2) = 0\n")
+    
     for i in range(30):
         grad = gradient(point[0], point[1])
+        grad_magnitude = np.linalg.norm(grad)
+        
+        if i < 5 or i % 5 == 0:  # Print first few and every 5th iteration
+            print(f"Iter {i:2d}: ({point[0]:6.3f}, {point[1]:6.3f}), " +
+                  f"f = {f(point[0], point[1]):8.4f}, |grad| = {grad_magnitude:.4f}")
+        
         point = point - learning_rate * grad
         path.append(point.copy())
+        
+        if grad_magnitude < 1e-6:
+            print(f"Converged at iteration {i}")
+            break
     
     path = np.array(path)
     
-    # Create contour plot
+    # Create comprehensive visualization
     x = np.linspace(-1, 6, 100)
     y = np.linspace(-1, 6, 100)
     X, Y = np.meshgrid(x, y)
     Z = f(X, Y)
     
-    plt.figure(figsize=(10, 8))
-    contour = plt.contour(X, Y, Z, levels=20)
-    plt.clabel(contour, inline=True, fontsize=8)
-    plt.plot(path[:, 0], path[:, 1], 'ro-', linewidth=2, markersize=4)
-    plt.plot(1, 2, 'g*', markersize=15, label='Global Minimum')
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.title('2D Gradient Descent')
-    plt.legend()
-    plt.grid(True)
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+    
+    # Contour plot with optimization path
+    ax1 = axes[0, 0]
+    contour = ax1.contour(X, Y, Z, levels=20, alpha=0.6)
+    ax1.clabel(contour, inline=True, fontsize=8)
+    ax1.plot(path[:, 0], path[:, 1], 'ro-', linewidth=3, markersize=6, 
+             label='Optimization Path')
+    ax1.plot(1, 2, 'g*', markersize=20, label='Global Minimum (1,2)')
+    ax1.plot(path[0, 0], path[0, 1], 'bs', markersize=10, label='Start (5,5)')
+    ax1.set_xlabel('x')
+    ax1.set_ylabel('y')
+    ax1.set_title('2D Gradient Descent Path')
+    ax1.legend()
+    ax1.grid(True, alpha=0.3)
+    
+    # 3D surface plot
+    ax2 = axes[0, 1] = plt.subplot(2, 2, 2, projection='3d')
+    ax2.plot_surface(X, Y, Z, alpha=0.3, cmap='viridis')
+    ax2.plot(path[:, 0], path[:, 1], [f(p[0], p[1]) for p in path], 
+             'ro-', linewidth=3, markersize=4, label='Path')
+    ax2.set_xlabel('x')
+    ax2.set_ylabel('y')
+    ax2.set_zlabel('f(x,y)')
+    ax2.set_title('3D Optimization Path')
+    
+    # Convergence analysis
+    ax3 = axes[1, 0]
+    function_values = [f(p[0], p[1]) for p in path]
+    ax3.plot(function_values, 'b-o', linewidth=2)
+    ax3.set_xlabel('Iteration')
+    ax3.set_ylabel('Function Value')
+    ax3.set_title('Function Value Convergence')
+    ax3.grid(True, alpha=0.3)
+    ax3.set_yscale('log')
+    
+    # Distance from optimum
+    ax4 = axes[1, 1]
+    distances = [np.linalg.norm(p - np.array([1, 2])) for p in path]
+    ax4.plot(distances, 'r-o', linewidth=2)
+    ax4.set_xlabel('Iteration')
+    ax4.set_ylabel('Distance from Optimum')
+    ax4.set_title('Distance to True Minimum')
+    ax4.grid(True, alpha=0.3)
+    ax4.set_yscale('log')
+    
+    plt.tight_layout()
     plt.show()
     
+    print(f"\nFinal point: ({path[-1][0]:.6f}, {path[-1][1]:.6f})")
+    print(f"Final function value: {f(path[-1][0], path[-1][1]):.6f}")
+    print(f"Distance from true minimum: {np.linalg.norm(path[-1] - np.array([1, 2])):.6f}")
+    
     return path
+
+# Example usage with comprehensive explanations
+print("=== Single Variable Gradient Descent ===")
+gradient_fundamentals()
+print("\n" + "="*60 + "\n")
+print("=== Multivariate Gradient Descent ===")
+multivariate_gradients()
+```
 
 # Neural network gradient example
 def simple_neural_network_gradients():
@@ -965,21 +1148,150 @@ nn, X_train, X_test, y_train, y_test = test_neural_network()
 **Tiempo:** 8 horas durante 1 semana  
 **Entregable:** Jupyter notebook con implementaciones matemáticas
 
+**Objetivos específicos:**
 1. **Linear Algebra Toolkit:** Implement matrix operations from scratch
+   - Vector operations (dot product, norms, distances)
+   - Matrix multiplication, inversion, eigendecomposition
+   - Compare performance: pure Python vs NumPy vs optimized BLAS
+   - Visualize eigenvectors and eigenvalues for 2D/3D data
+
 2. **Statistics Calculator:** Build probability distribution functions
+   - Implement common distributions (Normal, Binomial, Poisson)
+   - Central Limit Theorem demonstration with animations
+   - Bayesian inference examples (medical testing, spam filtering)
+   - Monte Carlo simulations for complex probability problems
+
 3. **Optimization Visualizer:** Create gradient descent animations
+   - Single variable: parabolas, cubic functions, non-convex functions
+   - Multivariate: 2D/3D contour plots with optimization paths
+   - Learning rate effects: oscillation, convergence, divergence
+   - Different optimizers: SGD, Momentum, Adam (basic implementations)
+
 4. **Information Theory:** Calculate entropy and KL divergence for datasets
+   - Text analysis: character/word entropy in different languages
+   - Image analysis: entropy in different image types (natural vs synthetic)
+   - Model comparison: KL divergence between predicted and true distributions
+   - Mutual information for feature selection
+
 5. **Performance Comparison:** Benchmark NumPy vs pure Python implementations
+   - Matrix operations timing for different sizes (10x10 to 1000x1000)
+   - Memory usage profiling and optimization
+   - Vectorization benefits demonstration
+   - SIMD and parallel processing impact
+
+**Evaluation Criteria:**
+- Code quality and documentation (25%)
+- Mathematical correctness (30%)
+- Visualization clarity and insights (25%)
+- Performance analysis depth (20%)
 
 ### Actividad 2: Algorithm Implementation Challenge
 **Tiempo:** 12 horas durante 1.5 semanas  
 **Entregable:** Complete ML algorithm library
 
+**Detailed Implementation Requirements:**
+
 1. **Linear Models:** Linear/Logistic regression with regularization
+   - **Linear Regression:**
+     - Normal equation method vs gradient descent
+     - Ridge regression (L2) and Lasso regression (L1)
+     - Feature scaling and normalization impact
+     - Cross-validation for hyperparameter tuning
+   - **Logistic Regression:**
+     - Sigmoid activation and log-likelihood
+     - Multi-class extension (one-vs-rest, softmax)
+     - Regularization to prevent overfitting
+     - Feature importance interpretation
+
 2. **Tree-based Methods:** Decision tree from scratch with pruning
+   - **Decision Tree Implementation:**
+     - Information gain vs Gini impurity splitting criteria
+     - Handling continuous and categorical features
+     - Pre-pruning (max depth, min samples) and post-pruning
+     - Feature importance calculation
+   - **Ensemble Extensions:**
+     - Bagging implementation (Bootstrap Aggregating)
+     - Random Forest with feature subsampling
+     - Out-of-bag error estimation
+
 3. **Neural Networks:** Multi-layer perceptron with backpropagation
+   - **Architecture Design:**
+     - Flexible layer sizes and activation functions
+     - Weight initialization strategies (Xavier, He, etc.)
+     - Bias handling and regularization (dropout, L2)
+   - **Training Implementation:**
+     - Forward propagation with matrix operations
+     - Backpropagation derivation and implementation
+     - Learning rate scheduling and momentum
+     - Batch processing for efficiency
+
 4. **Clustering:** K-means algorithm with initialization strategies
+   - **Core Algorithm:**
+     - Lloyd's algorithm implementation
+     - Distance metrics (Euclidean, Manhattan, Cosine)
+     - Convergence criteria and iteration limits
+   - **Initialization Methods:**
+     - Random initialization
+     - K-means++ for better starting points
+     - Multiple restarts for stability
+   - **Evaluation:**
+     - Within-cluster sum of squares (WCSS)
+     - Silhouette score calculation
+     - Elbow method for optimal K
+
 5. **Evaluation Framework:** Cross-validation and metrics calculation
+   - **Cross-Validation:**
+     - K-fold, stratified K-fold, time series splits
+     - Train/validation/test split strategies
+     - Nested cross-validation for model selection
+   - **Metrics Implementation:**
+     - Classification: accuracy, precision, recall, F1, ROC-AUC
+     - Regression: MSE, MAE, R², adjusted R²
+     - Clustering: silhouette, adjusted rand index
+   - **Statistical Testing:**
+     - Paired t-tests for model comparison
+     - McNemar's test for classifier comparison
+     - Confidence intervals for performance metrics
+
+**Comparison Framework:**
+- Implement each algorithm and compare against scikit-learn
+- Performance benchmarking (speed and memory usage)
+- Accuracy comparison on standard datasets
+- Detailed analysis of differences and optimizations
+
+**Deliverable Structure:**
+```
+ml_algorithms/
+├── linear_models/
+│   ├── linear_regression.py
+│   ├── logistic_regression.py
+│   └── regularization.py
+├── trees/
+│   ├── decision_tree.py
+│   ├── random_forest.py
+│   └── pruning.py
+├── neural_networks/
+│   ├── mlp.py
+│   ├── activations.py
+│   └── optimizers.py
+├── clustering/
+│   ├── kmeans.py
+│   └── initialization.py
+├── evaluation/
+│   ├── cross_validation.py
+│   ├── metrics.py
+│   └── statistical_tests.py
+├── benchmarks/
+│   └── comparison_study.ipynb
+└── tests/
+    └── test_algorithms.py
+```
+
+**Success Criteria:**
+- All algorithms achieve >95% accuracy match with scikit-learn
+- Comprehensive unit tests with >90% coverage
+- Performance analysis showing optimization opportunities
+- Clear documentation explaining mathematical foundations
 
 ### Actividad 3: Data Engineering Pipeline
 **Tiempo:** 10 horas durante 1 semana  

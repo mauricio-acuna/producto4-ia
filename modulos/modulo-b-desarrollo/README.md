@@ -45,9 +45,43 @@ Al finalizar este módulo serás capaz de:
 
 #### 🔧 **Copiloto de Desarrollo**
 ```yaml
-Backend: FastAPI + Python 3.11+
-Frontend: Streamlit / Gradio
-Database: PostgreSQL + Vector DB (Pinecone/Weaviate)
+Backend Stack:
+  Framework: FastAPI 0.104+ (async support, automatic docs)
+  Language: Python 3.11+ (performance improvements)
+  Database: PostgreSQL 15+ (JSONB for metadata)
+  Vector DB: Pinecone (managed) OR Weaviate (self-hosted)
+  Cache: Redis 7+ (session management, response caching)
+
+AI/ML Components:
+  Code LLM: CodeLlama-34B-Instruct OR GPT-4-Turbo
+  Embedding: OpenAI text-embedding-3-large (3072 dim)
+  Code Analysis: Tree-sitter (syntax parsing)
+  Security: Bandit + Semgrep (vulnerability scanning)
+
+Infrastructure:
+  Containerization: Docker + Docker Compose
+  Orchestration: Kubernetes (production) OR Docker Swarm (dev)
+  Monitoring: Prometheus + Grafana
+  Logging: ELK Stack (Elasticsearch, Logstash, Kibana)
+  CI/CD: GitHub Actions + ArgoCD
+
+Development Tools:
+  IDE Integration: VS Code Extension API
+  Testing: pytest + coverage.py + playwright (E2E)
+  Code Quality: black + isort + flake8 + mypy
+  Documentation: Sphinx + autodoc + mkdocs
+
+Deployment Options:
+  Cloud: AWS (ECS/EKS), GCP (Cloud Run/GKE), Azure (ACI/AKS)
+  Edge: Cloudflare Workers (lightweight version)
+  On-premise: Docker Swarm cluster
+```
+
+**Key Technical Decisions Explained:**
+- **FastAPI vs Flask:** AsyncIO support for concurrent LLM calls, automatic OpenAPI docs
+- **PostgreSQL vs MongoDB:** ACID compliance for code metadata, JSONB for flexibility
+- **Pinecone vs Weaviate:** Managed vs self-hosted trade-off, vector search performance
+- **CodeLlama vs GPT-4:** Cost vs quality balance, privacy considerations
 LLM: OpenAI API / Anthropic Claude
 Deployment: Docker + Railway/Heroku
 CI/CD: GitHub Actions
