@@ -1,0 +1,145 @@
+[
+  {
+    "vuln_id": "sql_injection_001",
+    "title": "SQL Injection in User Query",
+    "vulnerable_code": "def get_user_by_id(user_id):\n    query = f\"SELECT * FROM users WHERE id = {user_id}\"\n    cursor.execute(query)\n    return cursor.fetchone()",
+    "vulnerability_type": "sql_injection",
+    "severity": "critical",
+    "cvss_score": 9.8,
+    "cwe_id": "CWE-89",
+    "owasp_category": "A03:2021 - Injection",
+    "fixed_code": "def get_user_by_id(user_id: int) -> Optional[Dict]:\n    query = \"SELECT * FROM users WHERE id = %s\"\n    cursor.execute(query, (user_id,))\n    return cursor.fetchone()",
+    "explanation": "Use parameterized queries to prevent SQL injection. Never concatenate user input directly into SQL queries.",
+    "detection_patterns": [
+      "f_string_in_sql",
+      "string_concatenation_in_query",
+      "format_method_in_sql"
+    ],
+    "attack_vector": "Malicious user could input '1; DROP TABLE users; --' to delete the users table",
+    "mitigation": "Always use parameterized queries or ORM methods that handle escaping automatically",
+    "languages": ["python", "sql"]
+  },
+  {
+    "vuln_id": "xss_001",
+    "title": "Cross-Site Scripting in Template",
+    "vulnerable_code": "def render_user_profile(user_input):\n    html = f\"<h1>Welcome {user_input}</h1>\"\n    return html",
+    "vulnerability_type": "cross_site_scripting",
+    "severity": "high",
+    "cvss_score": 7.3,
+    "cwe_id": "CWE-79",
+    "owasp_category": "A07:2021 - Cross-Site Scripting",
+    "fixed_code": "from html import escape\n\ndef render_user_profile(user_input: str) -> str:\n    safe_input = escape(user_input)\n    html = f\"<h1>Welcome {safe_input}</h1>\"\n    return html",
+    "explanation": "Always escape user input before rendering in HTML to prevent XSS attacks",
+    "detection_patterns": [
+      "unescaped_user_input_in_html",
+      "direct_template_interpolation",
+      "innerHTML_assignment"
+    ],
+    "attack_vector": "User could input '<script>alert(\"XSS\")</script>' to execute malicious JavaScript",
+    "mitigation": "Use proper templating engines with auto-escaping or manually escape all user input",
+    "languages": ["python", "html", "javascript"]
+  },
+  {
+    "vuln_id": "path_traversal_001",
+    "title": "Path Traversal in File Access",
+    "vulnerable_code": "def read_user_file(filename):\n    file_path = f\"/uploads/{filename}\"\n    with open(file_path, 'r') as f:\n        return f.read()",
+    "vulnerability_type": "path_traversal",
+    "severity": "high",
+    "cvss_score": 8.1,
+    "cwe_id": "CWE-22",
+    "owasp_category": "A01:2021 - Broken Access Control",
+    "fixed_code": "import os\nfrom pathlib import Path\n\ndef read_user_file(filename: str) -> str:\n    # Validate filename\n    if '..' in filename or filename.startswith('/'):\n        raise ValueError(\"Invalid filename\")\n    \n    base_dir = Path(\"/uploads\")\n    file_path = base_dir / filename\n    \n    # Ensure the resolved path is within base directory\n    if not str(file_path.resolve()).startswith(str(base_dir.resolve())):\n        raise ValueError(\"Access denied\")\n    \n    with open(file_path, 'r') as f:\n        return f.read()",
+    "explanation": "Validate and sanitize file paths to prevent directory traversal attacks",
+    "detection_patterns": [
+      "unsanitized_path_input",
+      "direct_file_access",
+      "missing_path_validation"
+    ],
+    "attack_vector": "User could input '../../../etc/passwd' to access system files",
+    "mitigation": "Validate paths, use allowlists, and ensure resolved paths stay within intended directories",
+    "languages": ["python"]
+  },
+  {
+    "vuln_id": "insecure_deserialization_001",
+    "title": "Insecure Pickle Deserialization",
+    "vulnerable_code": "import pickle\n\ndef load_user_data(data):\n    return pickle.loads(data)",
+    "vulnerability_type": "insecure_deserialization",
+    "severity": "critical",
+    "cvss_score": 9.8,
+    "cwe_id": "CWE-502",
+    "owasp_category": "A08:2021 - Software and Data Integrity Failures",
+    "fixed_code": "import json\nfrom typing import Dict, Any\n\ndef load_user_data(data: str) -> Dict[Any, Any]:\n    try:\n        # Use safe serialization format like JSON\n        return json.loads(data)\n    except json.JSONDecodeError:\n        raise ValueError(\"Invalid data format\")",
+    "explanation": "Never deserialize untrusted data with pickle. Use safe formats like JSON or implement custom serialization with validation",
+    "detection_patterns": [
+      "pickle_loads_usage",
+      "eval_usage",
+      "exec_usage",
+      "unsafe_yaml_load"
+    ],
+    "attack_vector": "Malicious pickle data can execute arbitrary code during deserialization",
+    "mitigation": "Use safe serialization formats (JSON, XML) or implement cryptographic signatures for trusted data",
+    "languages": ["python"]
+  },
+  {
+    "vuln_id": "weak_crypto_001",
+    "title": "Weak Cryptographic Algorithm",
+    "vulnerable_code": "import hashlib\n\ndef hash_password(password):\n    return hashlib.md5(password.encode()).hexdigest()",
+    "vulnerability_type": "weak_cryptography",
+    "severity": "high",
+    "cvss_score": 7.5,
+    "cwe_id": "CWE-327",
+    "owasp_category": "A02:2021 - Cryptographic Failures",
+    "fixed_code": "import hashlib\nimport secrets\n\ndef hash_password(password: str) -> str:\n    # Generate random salt\n    salt = secrets.token_hex(16)\n    # Use strong hashing algorithm with salt\n    return hashlib.pbkdf2_hmac('sha256', password.encode(), salt.encode(), 100000).hex() + ':' + salt\n\ndef verify_password(password: str, hashed: str) -> bool:\n    hash_part, salt = hashed.split(':')\n    return hashlib.pbkdf2_hmac('sha256', password.encode(), salt.encode(), 100000).hex() == hash_part",
+    "explanation": "Use strong hashing algorithms like PBKDF2, bcrypt, or Argon2 with proper salting for password hashing",
+    "detection_patterns": [
+      "md5_usage_for_passwords",
+      "sha1_usage_for_passwords",
+      "missing_salt",
+      "insufficient_iterations"
+    ],
+    "attack_vector": "MD5 is vulnerable to rainbow table attacks and collision attacks",
+    "mitigation": "Use purpose-built password hashing functions with adequate work factors and unique salts",
+    "languages": ["python"]
+  },
+  {
+    "vuln_id": "hardcoded_secrets_001",
+    "title": "Hardcoded API Key in Source Code",
+    "vulnerable_code": "API_KEY = \"sk-1234567890abcdef\"\nDATABASE_PASSWORD = \"admin123\"\n\ndef connect_to_api():\n    headers = {'Authorization': f'Bearer {API_KEY}'}\n    return requests.get('https://api.example.com', headers=headers)",
+    "vulnerability_type": "hardcoded_credentials",
+    "severity": "high",
+    "cvss_score": 8.2,
+    "cwe_id": "CWE-798",
+    "owasp_category": "A07:2021 - Identification and Authentication Failures",
+    "fixed_code": "import os\nfrom typing import Optional\n\ndef get_api_key() -> Optional[str]:\n    return os.environ.get('API_KEY')\n\ndef connect_to_api():\n    api_key = get_api_key()\n    if not api_key:\n        raise ValueError(\"API_KEY environment variable not set\")\n    \n    headers = {'Authorization': f'Bearer {api_key}'}\n    return requests.get('https://api.example.com', headers=headers)",
+    "explanation": "Never hardcode secrets in source code. Use environment variables, secret management systems, or configuration files",
+    "detection_patterns": [
+      "hardcoded_api_keys",
+      "hardcoded_passwords",
+      "embedded_tokens",
+      "connection_string_literals"
+    ],
+    "attack_vector": "Secrets in source code can be exposed through version control, logs, or code sharing",
+    "mitigation": "Use environment variables, secret vaults (HashiCorp Vault, AWS Secrets Manager), or encrypted configuration",
+    "languages": ["python"]
+  },
+  {
+    "vuln_id": "dos_regex_001",
+    "title": "Regular Expression Denial of Service",
+    "vulnerable_code": "import re\n\ndef validate_input(user_input):\n    pattern = r'^(a+)+$'\n    return bool(re.match(pattern, user_input))",
+    "vulnerability_type": "regex_dos",
+    "severity": "medium",
+    "cvss_score": 5.3,
+    "cwe_id": "CWE-1333",
+    "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+    "fixed_code": "import re\n\ndef validate_input(user_input: str, timeout: float = 1.0) -> bool:\n    pattern = r'^a+$'  # Simplified pattern without catastrophic backtracking\n    try:\n        # Use timeout to prevent ReDoS\n        return bool(re.match(pattern, user_input))\n    except re.error:\n        return False",
+    "explanation": "Avoid regex patterns with catastrophic backtracking. Use atomic groups, possessive quantifiers, or timeout mechanisms",
+    "detection_patterns": [
+      "nested_quantifiers",
+      "alternation_with_overlap",
+      "exponential_backtracking_patterns"
+    ],
+    "attack_vector": "Specially crafted input can cause regex engine to consume excessive CPU time",
+    "mitigation": "Use safe regex patterns, implement timeouts, or use parsing libraries for complex formats",
+    "languages": ["python"]
+  }
+]

@@ -1,0 +1,294 @@
+[
+  {
+    "policy_id": "HR-VAC-001",
+    "title": "Política de Vacaciones y Tiempo Libre",
+    "category": "benefits",
+    "department": "human_resources",
+    "effective_date": "2024-01-01",
+    "last_updated": "2024-08-01",
+    "version": "3.1",
+    "status": "active",
+    "content": "Esta política establece las normas para el uso de tiempo de vacaciones y descanso de todos los empleados de tiempo completo y medio tiempo. Los empleados acumulan tiempo de vacaciones basado en su antigüedad y tipo de empleo. El objetivo es asegurar que todos los empleados tengan oportunidad adecuada de descanso mientras se mantienen las operaciones comerciales.",
+    "detailed_provisions": [
+      {
+        "section": "Acumulación de Vacaciones",
+        "content": "Los empleados de tiempo completo acumulan 1.67 días de vacaciones por mes trabajado (20 días anuales). Después de 2 años de servicio, se otorga 1 día adicional por año de antigüedad, hasta un máximo de 30 días anuales."
+      },
+      {
+        "section": "Uso de Vacaciones",
+        "content": "Las vacaciones deben ser solicitadas con al menos 2 semanas de anticipación. Los empleados deben tomar un mínimo de 5 días consecutivos al año. El máximo de días que se pueden tomar consecutivamente es 20 días sin aprobación especial."
+      },
+      {
+        "section": "Carry-over",
+        "content": "Los empleados pueden llevar hasta 5 días de vacaciones no utilizadas al año siguiente. Estos días deben ser utilizados antes del 31 de marzo del nuevo año fiscal, o se pierden sin compensación."
+      }
+    ],
+    "key_points": [
+      "Acumulación: 1.67 días por mes trabajado para empleados full-time",
+      "Bonus por antigüedad: 1 día extra por año después de 2 años de servicio",
+      "Máximo carry-over: 5 días al año siguiente (vencen 31 de marzo)",
+      "Solicitud: mínimo 2 semanas de anticipación",
+      "Uso obligatorio: mínimo 5 días consecutivos por año"
+    ],
+    "eligibility": {
+      "employment_type": ["full_time", "part_time"],
+      "minimum_tenure": "90_days",
+      "excluded_roles": ["contractor", "intern", "temporary"],
+      "part_time_calculation": "Proporcional a horas trabajadas (mínimo 20 horas/semana)"
+    },
+    "approval_workflow": [
+      {
+        "step": 1,
+        "approver": "direct_manager",
+        "required": true,
+        "sla": "3 business days",
+        "criteria": "Verificar cobertura de trabajo y planificación de equipo"
+      },
+      {
+        "step": 2,
+        "approver": "hr_representative",
+        "required_if": "duration > 10 days OR busy_season",
+        "sla": "2 business days",
+        "criteria": "Verificar compliance con políticas y disponibilidad de equipo"
+      },
+      {
+        "step": 3,
+        "approver": "department_director",
+        "required_if": "duration > 15 days",
+        "sla": "5 business days",
+        "criteria": "Aprobación ejecutiva para ausencias extendidas"
+      }
+    ],
+    "blackout_periods": [
+      {
+        "period": "Q4 Financial Close",
+        "dates": "December 20 - January 5",
+        "affected_departments": ["finance", "accounting"],
+        "exceptions": "Medical emergencies or pre-approved family events"
+      },
+      {
+        "period": "Product Launch Season",
+        "dates": "March 1 - March 31",
+        "affected_departments": ["engineering", "marketing", "sales"],
+        "exceptions": "Maximum 2 people per team with director approval"
+      }
+    ],
+    "special_circumstances": {
+      "medical_leave": "Tiempo de enfermedad no cuenta como vacaciones - referirse a política HR-SICK-001",
+      "family_emergencies": "Hasta 3 días de ausencia de emergencia pueden ser deducidos de vacaciones futuras",
+      "sabbatical": "Empleados con 5+ años pueden aplicar para sabbatical no pagado - política HR-SAB-001"
+    },
+    "related_policies": ["HR-SICK-001", "HR-LEAVE-001", "HR-SAB-001", "HR-HOLIDAY-001"],
+    "access_level": "all_employees",
+    "compliance_requirements": [
+      "Federal Labor Standards Act",
+      "State labor laws (varies by location)",
+      "Company collective bargaining agreements"
+    ],
+    "frequently_asked_questions": [
+      {
+        "question": "¿Puedo vender mis días de vacaciones no utilizados?",
+        "answer": "No, la empresa no compra días de vacaciones no utilizados. Los empleados deben usar sus días o perderlos según la política de carry-over."
+      },
+      {
+        "question": "¿Qué pasa si me enfermo durante mis vacaciones?",
+        "answer": "Si tienes una enfermedad documentada por médico durante vacaciones, puedes cambiar esos días a tiempo de enfermedad siguiendo el procedimiento de HR-SICK-001."
+      }
+    ]
+  },
+  {
+    "policy_id": "HR-REMOTE-001",
+    "title": "Política de Trabajo Remoto",
+    "category": "workplace_flexibility",
+    "department": "human_resources",
+    "effective_date": "2024-03-01",
+    "last_updated": "2024-07-15",
+    "version": "2.1",
+    "status": "active",
+    "content": "Esta política define las directrices para el trabajo remoto, incluyendo elegibilidad, expectativas de productividad, y requisitos tecnológicos. El trabajo remoto es un privilegio que permite a los empleados trabajar desde ubicaciones fuera de la oficina principal manteniendo la efectividad operacional.",
+    "detailed_provisions": [
+      {
+        "section": "Elegibilidad",
+        "content": "Los empleados son elegibles para trabajo remoto después de 6 meses de empleo satisfactorio. Los roles que requieren presencia física (laboratorio, manufactura, recepción) no califican. Los empleados deben demostrar productividad consistente y comunicación efectiva."
+      },
+      {
+        "section": "Modalidades de Trabajo",
+        "content": "Híbrido: 2-3 días en oficina, resto remoto. Remoto completo: disponible para roles específicos con aprobación gerencial. Remoto temporal: hasta 30 días por solicitudes especiales (mudanza, cuidado familiar, etc.)"
+      },
+      {
+        "section": "Expectativas de Productividad",
+        "content": "Los empleados remotos deben mantener las mismas horas de trabajo y disponibilidad que en oficina. Participación en reuniones virtuales es obligatoria. Los KPIs de productividad serán monitoreados mensualmente."
+      }
+    ],
+    "key_points": [
+      "Elegibilidad después de 6 meses de empleo satisfactorio",
+      "Modalidades: híbrido (2-3 días oficina), remoto completo, o temporal",
+      "Mismas expectativas de productividad y horarios",
+      "Equipamiento tecnológico proporcionado por la empresa",
+      "Evaluación trimestral de efectividad"
+    ],
+    "eligibility": {
+      "minimum_tenure": "6_months",
+      "performance_requirement": "meets_or_exceeds_expectations",
+      "role_compatibility": "Must not require physical presence",
+      "manager_approval": "Required for all remote arrangements",
+      "excluded_roles": ["reception", "laboratory_technician", "warehouse_staff", "security"]
+    },
+    "technology_requirements": {
+      "internet_speed": "Minimum 25 Mbps upload/download",
+      "equipment_provided": ["laptop", "monitor", "headset", "ergonomic_chair"],
+      "security_software": ["VPN client", "endpoint_protection", "encrypted_storage"],
+      "backup_connectivity": "Mobile hotspot for critical roles"
+    },
+    "workspace_standards": {
+      "ergonomics": "Proper desk height, chair support, monitor positioning",
+      "lighting": "Adequate lighting to prevent eye strain",
+      "noise_control": "Quiet environment for calls and concentration",
+      "backup_power": "UPS recommended for critical functions"
+    },
+    "communication_expectations": {
+      "availability": "Core business hours (9 AM - 5 PM local time)",
+      "response_time": "Email: 4 hours, Slack: 1 hour, urgent: 15 minutes",
+      "weekly_checkins": "Required 30-minute 1:1 with direct manager",
+      "team_meetings": "Must attend all scheduled team meetings virtually"
+    ],
+    "evaluation_criteria": [
+      {
+        "metric": "Productivity KPIs",
+        "measurement": "Monthly comparison to office-based metrics",
+        "threshold": "Maintain 95% of in-office productivity levels"
+      },
+      {
+        "metric": "Communication Effectiveness",
+        "measurement": "360-degree feedback from team members",
+        "threshold": "Average rating of 4/5 or higher"
+      },
+      {
+        "metric": "Project Delivery",
+        "measurement": "On-time completion of assigned projects",
+        "threshold": "90% on-time delivery rate"
+      }
+    ],
+    "approval_workflow": [
+      {
+        "step": 1,
+        "approver": "direct_manager",
+        "criteria": "Performance review, role suitability assessment",
+        "sla": "5 business days"
+      },
+      {
+        "step": 2,
+        "approver": "hr_business_partner",
+        "criteria": "Policy compliance, documentation review",
+        "sla": "3 business days"
+      },
+      {
+        "step": 3,
+        "approver": "it_security",
+        "criteria": "Security assessment, equipment allocation",
+        "sla": "2 business days"
+      }
+    ],
+    "related_policies": ["IT-SEC-001", "HR-PERF-001", "HR-TRAVEL-001"],
+    "access_level": "all_employees",
+    "compliance_requirements": [
+      "Data privacy regulations (GDPR, CCPA)",
+      "Information security standards (ISO 27001)",
+      "Labor law compliance for remote work locations"
+    ]
+  },
+  {
+    "policy_id": "IT-SEC-001",
+    "title": "Política de Seguridad de Información",
+    "category": "information_security",
+    "department": "information_technology",
+    "effective_date": "2024-01-01",
+    "last_updated": "2024-06-01",
+    "version": "4.2",
+    "status": "active",
+    "classification": "internal",
+    "content": "Esta política establece los principios y requisitos para la protección de información corporativa y sistemas tecnológicos. Todos los empleados, contratistas y terceros con acceso a sistemas corporativos deben cumplir con estas directrices para mantener la confidencialidad, integridad y disponibilidad de la información.",
+    "detailed_provisions": [
+      {
+        "section": "Clasificación de Información",
+        "content": "Toda información debe ser clasificada como: Pública (sin restricciones), Interna (solo empleados), Confidencial (acceso restringido), o Altamente Confidencial (acceso muy limitado). La clasificación determina los controles de acceso y manejo requeridos."
+      },
+      {
+        "section": "Gestión de Contraseñas",
+        "content": "Las contraseñas deben tener mínimo 12 caracteres, incluir mayúsculas, minúsculas, números y símbolos. Deben cambiarse cada 90 días. No se permiten contraseñas reutilizadas. El uso de gestores de contraseñas es obligatorio."
+      },
+      {
+        "section": "Acceso a Sistemas",
+        "content": "El acceso sigue el principio de menor privilegio. Los accesos deben ser revisados trimestralmente. Las cuentas inactivas por 30 días serán deshabilitadas. El acceso administrativo requiere justificación y aprobación especial."
+      }
+    ],
+    "key_points": [
+      "Clasificación obligatoria de toda información corporativa",
+      "Contraseñas de 12+ caracteres con complejidad requerida",
+      "Principio de menor privilegio para todos los accesos",
+      "Revisión trimestral de permisos de usuario",
+      "Capacitación anual obligatoria en seguridad"
+    ],
+    "password_requirements": {
+      "minimum_length": 12,
+      "complexity": "Upper + lower + numbers + symbols",
+      "rotation_period": "90 days",
+      "history_check": "Cannot reuse last 12 passwords",
+      "lockout_policy": "5 failed attempts = 30 minute lockout",
+      "password_manager": "Required for all corporate accounts"
+    },
+    "access_control": {
+      "principle": "Least privilege access",
+      "review_frequency": "Quarterly",
+      "inactive_account_threshold": "30 days",
+      "admin_access_approval": "CISO and department head required",
+      "offboarding_timeline": "Access revoked within 2 hours of termination"
+    },
+    "data_classification": [
+      {
+        "level": "Public",
+        "description": "Information intended for public consumption",
+        "examples": ["Marketing materials", "Press releases", "Job postings"],
+        "controls": "No special controls required"
+      },
+      {
+        "level": "Internal",
+        "description": "Information for internal use only",
+        "examples": ["Org charts", "Internal procedures", "Training materials"],
+        "controls": "Employee access only, no external sharing"
+      },
+      {
+        "level": "Confidential",
+        "description": "Sensitive business information",
+        "examples": ["Financial data", "Customer lists", "Product roadmaps"],
+        "controls": "Need-to-know basis, encryption required"
+      },
+      {
+        "level": "Highly Confidential",
+        "description": "Most sensitive information",
+        "examples": ["Trade secrets", "M&A plans", "Security vulnerabilities"],
+        "controls": "Executive approval required, full audit trail"
+      }
+    ],
+    "incident_response": {
+      "reporting_timeline": "Immediate (within 1 hour)",
+      "escalation_path": "IT Security → CISO → Legal → Executive Team",
+      "communication_protocol": "Internal notification within 4 hours, external as required by law",
+      "recovery_sla": "Critical systems: 4 hours, Non-critical: 24 hours"
+    },
+    "training_requirements": {
+      "frequency": "Annual for all employees",
+      "specialized_training": "Quarterly for IT staff and privileged users",
+      "phishing_simulation": "Monthly tests with immediate remediation",
+      "compliance_verification": "Required for annual performance reviews"
+    },
+    "related_policies": ["IT-STD-002", "HR-PRIV-001", "COMP-GDPR-001"],
+    "access_level": "all_employees",
+    "compliance_requirements": [
+      "SOC 2 Type II",
+      "ISO 27001",
+      "GDPR Article 32",
+      "SOX Section 404"
+    ]
+  }
+]

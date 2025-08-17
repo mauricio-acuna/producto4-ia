@@ -1,0 +1,99 @@
+[
+  {
+    "function_id": "py_func_001",
+    "code": "def calculate_fibonacci(n: int) -> int:\n    \"\"\"Calculate nth Fibonacci number using iterative approach.\n    \n    Args:\n        n: The position in Fibonacci sequence (0-indexed)\n        \n    Returns:\n        The nth Fibonacci number\n        \n    Raises:\n        ValueError: If n is negative\n    \"\"\"\n    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n    if n <= 1:\n        return n\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b",
+    "docstring": "Calculate nth Fibonacci number using iterative approach.",
+    "complexity": "O(n)",
+    "space_complexity": "O(1)",
+    "category": "algorithms",
+    "subcategory": "dynamic_programming",
+    "imports": [],
+    "test_cases": [
+      {"input": 0, "expected_output": 0, "description": "Base case: F(0) = 0"},
+      {"input": 1, "expected_output": 1, "description": "Base case: F(1) = 1"},
+      {"input": 10, "expected_output": 55, "description": "Standard case"},
+      {"input": 20, "expected_output": 6765, "description": "Larger number"}
+    ],
+    "quality_score": 9.2,
+    "common_bugs": ["off_by_one_error", "negative_input_handling", "integer_overflow"],
+    "performance_notes": "Efficient iterative implementation, suitable for large n",
+    "alternatives": ["recursive", "memoization", "matrix_exponentiation"]
+  },
+  {
+    "function_id": "py_func_002",
+    "code": "def validate_email(email: str) -> bool:\n    \"\"\"Validate email address format using regex.\n    \n    Args:\n        email: Email string to validate\n        \n    Returns:\n        True if email format is valid, False otherwise\n    \"\"\"\n    import re\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    return bool(re.match(pattern, email))",
+    "docstring": "Validate email address format using regex.",
+    "complexity": "O(n)",
+    "space_complexity": "O(1)",
+    "category": "validation",
+    "subcategory": "string_processing",
+    "imports": ["re"],
+    "test_cases": [
+      {"input": "user@example.com", "expected_output": true, "description": "Valid email"},
+      {"input": "invalid.email", "expected_output": false, "description": "Missing @ symbol"},
+      {"input": "user@", "expected_output": false, "description": "Missing domain"},
+      {"input": "@example.com", "expected_output": false, "description": "Missing username"}
+    ],
+    "quality_score": 7.5,
+    "common_bugs": ["regex_injection", "incomplete_validation"],
+    "security_notes": "Basic validation only, consider using dedicated email validation libraries for production",
+    "improvements": ["use_email_validator_library", "internationalized_domains", "disposable_email_detection"]
+  },
+  {
+    "function_id": "py_func_003",
+    "code": "def merge_sort(arr: list) -> list:\n    \"\"\"Sort array using merge sort algorithm.\n    \n    Args:\n        arr: List of comparable elements\n        \n    Returns:\n        New sorted list\n    \"\"\"\n    if len(arr) <= 1:\n        return arr\n    \n    mid = len(arr) // 2\n    left = merge_sort(arr[:mid])\n    right = merge_sort(arr[mid:])\n    \n    return merge(left, right)\n\ndef merge(left: list, right: list) -> list:\n    \"\"\"Merge two sorted arrays.\"\"\"\n    result = []\n    i = j = 0\n    \n    while i < len(left) and j < len(right):\n        if left[i] <= right[j]:\n            result.append(left[i])\n            i += 1\n        else:\n            result.append(right[j])\n            j += 1\n    \n    result.extend(left[i:])\n    result.extend(right[j:])\n    return result",
+    "docstring": "Sort array using merge sort algorithm.",
+    "complexity": "O(n log n)",
+    "space_complexity": "O(n)",
+    "category": "algorithms",
+    "subcategory": "sorting",
+    "imports": [],
+    "test_cases": [
+      {"input": [3, 1, 4, 1, 5, 9, 2, 6], "expected_output": [1, 1, 2, 3, 4, 5, 6, 9], "description": "Standard array"},
+      {"input": [], "expected_output": [], "description": "Empty array"},
+      {"input": [1], "expected_output": [1], "description": "Single element"},
+      {"input": [5, 4, 3, 2, 1], "expected_output": [1, 2, 3, 4, 5], "description": "Reverse sorted"}
+    ],
+    "quality_score": 9.0,
+    "common_bugs": ["index_out_of_bounds", "incorrect_merge_logic"],
+    "performance_notes": "Stable sort with guaranteed O(n log n) performance",
+    "alternatives": ["quicksort", "heapsort", "timsort"]
+  },
+  {
+    "function_id": "py_func_004",
+    "code": "def api_request_handler(func):\n    \"\"\"Decorator for handling API request errors and logging.\n    \n    Args:\n        func: Function to decorate\n        \n    Returns:\n        Decorated function with error handling\n    \"\"\"\n    import functools\n    import logging\n    from typing import Any\n    \n    @functools.wraps(func)\n    def wrapper(*args: Any, **kwargs: Any) -> Any:\n        try:\n            logging.info(f\"API call: {func.__name__}\")\n            result = func(*args, **kwargs)\n            logging.info(f\"API call successful: {func.__name__}\")\n            return result\n        except Exception as e:\n            logging.error(f\"API call failed: {func.__name__} - {str(e)}\")\n            raise\n    return wrapper",
+    "docstring": "Decorator for handling API request errors and logging.",
+    "complexity": "O(1)",
+    "space_complexity": "O(1)",
+    "category": "decorators",
+    "subcategory": "error_handling",
+    "imports": ["functools", "logging", "typing"],
+    "test_cases": [
+      {"description": "Function executes successfully", "expected_behavior": "logs success message"},
+      {"description": "Function raises exception", "expected_behavior": "logs error and re-raises"},
+      {"description": "Preserves function metadata", "expected_behavior": "wrapper has same __name__ and __doc__"}
+    ],
+    "quality_score": 8.5,
+    "common_bugs": ["missing_functools_wraps", "swallowed_exceptions"],
+    "best_practices": ["preserve_function_metadata", "appropriate_logging_levels", "re_raise_exceptions"],
+    "use_cases": ["api_endpoints", "external_service_calls", "database_operations"]
+  },
+  {
+    "function_id": "py_func_005",
+    "code": "def calculate_hash(data: str, algorithm: str = 'sha256') -> str:\n    \"\"\"Calculate hash of input data using specified algorithm.\n    \n    Args:\n        data: String data to hash\n        algorithm: Hash algorithm ('md5', 'sha1', 'sha256', 'sha512')\n        \n    Returns:\n        Hexadecimal hash string\n        \n    Raises:\n        ValueError: If algorithm is not supported\n    \"\"\"\n    import hashlib\n    \n    supported_algorithms = {'md5', 'sha1', 'sha256', 'sha512'}\n    \n    if algorithm not in supported_algorithms:\n        raise ValueError(f\"Unsupported algorithm: {algorithm}\")\n    \n    hash_obj = hashlib.new(algorithm)\n    hash_obj.update(data.encode('utf-8'))\n    return hash_obj.hexdigest()",
+    "docstring": "Calculate hash of input data using specified algorithm.",
+    "complexity": "O(n)",
+    "space_complexity": "O(1)",
+    "category": "cryptography",
+    "subcategory": "hashing",
+    "imports": ["hashlib"],
+    "test_cases": [
+      {"input": ["hello", "sha256"], "expected_output": "2cf24dba4f21d4288094e433a85f8841f70f24e5", "description": "SHA256 of 'hello'"},
+      {"input": ["test", "md5"], "expected_output": "098f6bcd4621d373cade4e832627b4f6", "description": "MD5 of 'test'"}
+    ],
+    "quality_score": 8.8,
+    "security_notes": "MD5 and SHA1 are cryptographically broken, use SHA256+ for security applications",
+    "common_bugs": ["encoding_issues", "unsupported_algorithm_handling"],
+    "improvements": ["add_salt_support", "streaming_for_large_data", "constant_time_comparison"]
+  }
+]
