@@ -6,114 +6,63 @@ Este módulo guía a los estudiantes en la selección de su proyecto capstone fi
 
 ## 🚀 Opciones de Capstones Disponibles
 
-### 1. 💻 Copiloto de Desarrollo (Dev-Tools)
-**Perfil objetivo:** AI Engineer en empresas de software
+### 1. 💻 [Copiloto de Desarrollo](./copiloto-desarrollo.md) (Dev-Tools)
+**Perfil objetivo:** AI Engineer en empresas de software  
+**Dificultad:** ⭐⭐⭐⭐ | **Tiempo:** 4 semanas | **Salario objetivo:** $120-180K
 
 **Descripción:** Construir un asistente de código que ayude a desarrolladores con:
-- Generación de código contextual
-- Refactoring automático
-- Detección de bugs y vulnerabilidades
-- Documentación automática
+- Generación de código contextual y autocompletado inteligente
+- Refactoring automático y detección de code smells
+- Detección de bugs y vulnerabilidades de seguridad
+- Documentación automática y explicaciones de código
 
-**Stack sugerido:**
-- LangChain + OpenAI Codex/GPT-4
-- Vector DB: Pinecone/Chroma
-- Frontend: VS Code Extension o Web App
-- CI/CD: GitHub Actions
-
-**Datasets incluidos:**
-- Repositorios de código abierto
-- Documentación técnica
-- Issues y PRs históricas
-
-**Métricas de éxito:**
-- Precisión de sugerencias de código
-- Tiempo de respuesta < 2s
-- Satisfacción del desarrollador (NPS)
+**Stack principal:** LangChain + OpenAI GPT-4 + Pinecone + VS Code Extension
+**🎯 Ideal para:** Desarrolladores con 2+ años de experiencia que quieren trabajar en startups tech
 
 ---
 
-### 2. 🏢 Asistente Empresarial (RAG Corporativo)
-**Perfil objetivo:** AI Solutions Engineer en consultoras/empresas
+### 2. 🏢 [Asistente Empresarial](./asistente-empresarial.md) (RAG Corporativo)
+**Perfil objetivo:** AI Solutions Engineer en consultoras/empresas  
+**Dificultad:** ⭐⭐⭐ | **Tiempo:** 3-4 semanas | **Salario objetivo:** $100-150K
 
 **Descripción:** Sistema de Q&A empresarial que maneja:
-- Políticas y procedimientos internos
-- Base de conocimiento corporativo
-- Onboarding de empleados
-- Compliance y regulaciones
+- Políticas y procedimientos internos con citaciones
+- Base de conocimiento corporativo y onboarding
+- Control de acceso por roles (RBAC) y compliance
+- Audit trail completo y métricas de negocio
 
-**Stack sugerido:**
-- LlamaIndex + Anthropic Claude
-- Vector DB: Weaviate
-- Frontend: Streamlit/Gradio
-- Seguridad: OAuth + RBAC
-
-**Datasets incluidos:**
-- Manuales corporativos simulados
-- Políticas de HR
-- Documentos de compliance
-- FAQs empresariales
-
-**Métricas de éxito:**
-- Precisión de respuestas > 85%
-- Cobertura de documentos corporativos
-- Reducción en tickets de soporte
+**Stack principal:** LlamaIndex + Anthropic Claude + Weaviate + React
+**🎯 Ideal para:** Profesionales con experiencia corporativa que entienden procesos de negocio
 
 ---
 
-### 3. ⚖️ Copiloto Legal/Finanzas (Domain Expert)
-**Perfil objetivo:** AI Specialist en sectores regulados
+### 3. ⚖️ [Copiloto Legal/Finanzas](./copiloto-legal-finanzas.md) (Domain Expert)
+**Perfil objetivo:** AI Specialist en sectores regulados  
+**Dificultad:** ⭐⭐⭐⭐⭐ | **Tiempo:** 4-5 semanas | **Salario objetivo:** $150-220K
 
 **Descripción:** Asistente especializado que maneja:
-- Análisis de contratos
-- Research de jurisprudencia
-- Análisis de riesgo financiero
-- Compliance regulatorio
+- Análisis automático de contratos y extracción de cláusulas
+- Research jurisprudencial con precedentes relevantes
+- Análisis de riesgo financiero y due diligence
+- Compliance regulatorio con trazabilidad completa
 
-**Stack sugerido:**
-- OpenAI + fine-tuning domain-specific
-- Vector DB: Pinecone con metadata filtering
-- Frontend: React/Next.js
-- Audit: LangSmith para trazabilidad
-
-**Datasets incluidos:**
-- Contratos anonimizados
-- Documentos regulatorios
-- Casos legales públicos
-- Reportes financieros
-
-**Métricas de éxito:**
-- Precisión en extracción de cláusulas
-- Tiempo de análisis de documentos
-- Conformidad regulatoria
+**Stack principal:** OpenAI GPT-4 + Legal-BERT + Pinecone + Audit Systems
+**🎯 Ideal para:** Profesionales con background legal/financiero que buscan alta especialización
 
 ---
 
-### 4. 📊 Analytics Agent (Data Intelligence)
-**Perfil objetivo:** AI Data Engineer en equipos de analytics
+### 4. 📊 [Analytics Agent](./analytics-agent.md) (Data Intelligence)
+**Perfil objetivo:** AI Data Engineer en equipos de analytics  
+**Dificultad:** ⭐⭐⭐⭐ | **Tiempo:** 4 semanas | **Salario objetivo:** $130-190K
 
 **Descripción:** Agente que automatiza análisis de datos:
-- Generación de insights automáticos
-- Creación de dashboards dinámicos
-- Detección de anomalías
-- Predicciones de negocio
+- Generación automática de insights y recomendaciones accionables
+- Creación de dashboards dinámicos con storytelling
+- Detección de anomalías y análisis de causas raíz
+- Forecasting automático y simulaciones de escenarios
 
-**Stack sugerido:**
-- LangChain + Code Interpreter pattern
-- Pandas + Plotly + Streamlit
-- Vector DB: Chroma para metadata
-- MLOps: Weights & Biases
-
-**Datasets incluidos:**
-- Datos de ventas simulados
-- Métricas de marketing
-- Datos de comportamiento de usuarios
-- KPIs empresariales
-
-**Métricas de éxito:**
-- Precisión de insights generados
-- Tiempo de análisis automático
-- Adopción por usuarios de negocio
+**Stack principal:** LangChain + PandasAI + Plotly Dash + MLflow
+**🎯 Ideal para:** Analistas de datos que quieren automatizar y escalar su impacto
 
 ---
 
@@ -147,6 +96,24 @@ Este módulo guía a los estudiantes en la selección de su proyecto capstone fi
 - [ ] He confirmado disponibilidad de datasets
 
 ## 🚀 Siguiente Paso
+
+### 🎯 **Herramienta de Selección**
+**¿No estás seguro cuál elegir?** → [**Guía de Selección Rápida**](./guia-seleccion-rapida.md)
+- Test de aptitud en 2 minutos
+- Matriz de decisión por objetivos profesionales  
+- Recomendaciones personalizadas
+
+### 📚 **Especificaciones Completas**
+Cada capstone tiene su documentación detallada con:
+- Arquitectura técnica completa
+- Casos de uso específicos con código
+- Plan de implementación de 4 semanas
+- Benchmarks y métricas de evaluación
+- Datasets y recursos incluidos
+
+### ⏰ **Timeline de Decisión**
+- **Esta semana:** Revisar opciones y seleccionar capstone
+- **Próxima semana:** Proceder al **Módulo B - Desarrollo del Proyecto**
 
 Una vez seleccionado tu capstone, procede al **Módulo B - Desarrollo del Proyecto** para comenzar la planificación e implementación.
 
