@@ -6,11 +6,26 @@
 
 > Transformando desarrolladores en **AI Engineers** con portfolio profesional y career readiness
 
+## 🚀 Navegación Rápida
+
+### 📚 Documentación Principal
+- [📋 Programa Completo](#programa-completo---módulos-a-f) | [🎯 Objetivos](#objetivos-del-programa) | [🏆 Resultados](#resultados-esperados)
+- [🛠️ Guía de Instalación](./INSTALLATION_GUIDE.md) | [🚀 Guía de Deployment](./DEPLOYMENT_GUIDE.md) | [📊 Estado del Proyecto](./PROJECT_STATUS.md)
+
+### 🎓 Módulos del Programa
+- [🔬 Módulo A - Fundamentos](./modulos/modulo-a-fundamentos/README.md) | [🏗️ Módulo B - Desarrollo](./modulos/modulo-b-desarrollo/README.md) | [📊 Módulo C - Benchmarks](./modulos/modulo-c-benchmarks/README.md)
+- [📖 Módulo D - Documentación](./modulos/modulo-d-documentacion/README.md) | [🎯 Módulo E - Entrevistas](./modulos/modulo-e-entrevistas/README.md) | [💼 Módulo F - Carrera](./modulos/modulo-f-carrera/README.md)
+
+### 🛠️ Recursos y Herramientas
+- [📚 Recursos Generales](./recursos/) | [🧪 Tests y Quality](./tests/) | [⚙️ Scripts](./scripts/)
+
+---
+
 ## 📋 Programa Completo - Módulos A-F
 
 ### 📚 Estructura Modular Completa
 
-#### [🔬 Módulo A - Fundamentos](./modulos/modulo-a-fundamentos/)
+#### [🔬 Módulo A - Fundamentos](./modulos/modulo-a-fundamentos/README.md)
 **Duración:** 3-4 semanas  
 **Focus:** Base técnica sólida en AI/ML
 - Fundamentos matemáticos y algorítmicos
@@ -18,7 +33,7 @@
 - MLOps y deployment basics
 - Análisis exploratorio y feature engineering
 
-#### [🏗️ Módulo B - Desarrollo del Proyecto](./modulos/modulo-b-desarrollo/)
+#### [🏗️ Módulo B - Desarrollo del Proyecto](./modulos/modulo-b-desarrollo/README.md)
 **Duración:** 4 semanas  
 **Focus:** Metodología profesional de desarrollo
 - Project management y planning
@@ -26,7 +41,7 @@
 - CI/CD pipeline setup
 - Code quality y testing standards
 
-#### [📊 Módulo C - Benchmarks](./modulos/modulo-c-benchmarks/)
+#### [📊 Módulo C - Benchmarks](./modulos/modulo-c-benchmarks/README.md)
 **Duración:** 4 semanas  
 **Focus:** Evaluación científica y optimización
 - Framework de evaluación sistemática
@@ -34,7 +49,7 @@
 - Cost optimization y performance tuning
 - Business impact measurement
 
-#### [📖 Módulo D - Documentación](./modulos/modulo-d-documentacion/)
+#### [📖 Módulo D - Documentación](./modulos/modulo-d-documentacion/README.md)
 **Duración:** 4 semanas  
 **Focus:** Documentación enterprise-grade
 - Technical writing y communication
@@ -42,7 +57,7 @@
 - Executive summaries y business communication
 - Portfolio development y presentation
 
-#### [🎯 Módulo E - Entrevistas](./modulos/modulo-e-entrevistas/)
+#### [🎯 Módulo E - Entrevistas](./modulos/modulo-e-entrevistas/README.md)
 **Duración:** 4 semanas  
 **Focus:** Mastery del proceso de interview
 - Technical screening preparation
@@ -50,7 +65,7 @@
 - Live coding y problem solving
 - Behavioral interviews y company fit
 
-#### [💼 Módulo F - Carrera y Mercado](./modulos/modulo-f-carrera/)
+#### [💼 Módulo F - Carrera y Mercado](./modulos/modulo-f-carrera/README.md)
 **Duración:** 3-4 semanas  
 **Focus:** Navigation del mercado laboral global
 - Market intelligence y salary negotiation
